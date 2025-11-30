@@ -1,176 +1,486 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-	<meta class="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Tidox</title>
-	<!-- Don't forget to add your metadata here -->
-	<link rel='stylesheet' href='https://tidox.online/css/style.min.css' />
-	<script data-ad-client="ca-pub-8027163152836505" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tidox - Privacy-First Mobile Apps for Modern Life</title>
+
+    <!-- Meta SEO -->
+    <meta name="description" content="Discover Tidox's innovative Android apps: Stream with Player (IPTV, VR, Chromecast), transcribe privately with Offline Transcript (on-device AI), and manage tasks efficiently. Privacy-first, modern, powerful.">
+    <meta name="author" content="Tidox">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://tidox.online/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tidox - Privacy-First Mobile Apps for Modern Life">
+    <meta property="og:description" content="Three powerful Android apps built with innovation and privacy at their core: Tidox Player for IPTV streaming, Offline Transcript for private AI transcription, and Task Manager for productivity.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tidox.online/">
+    <meta property="og:image" content="https://tidox.online/og-image.jpg">
+    <meta property="og:site_name" content="Tidox">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tidox - Privacy-First Mobile Apps for Modern Life">
+    <meta name="twitter:description" content="Three powerful Android apps: IPTV Player, AI Transcription, Task Manager. Download now on Google Play.">
+    <meta name="twitter:image" content="https://tidox.online/og-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Tidox",
+      "url": "https://tidox.online",
+      "logo": "https://tidox.online/logo.png",
+      "description": "Privacy-first mobile apps for modern life",
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Tidox",
+      "url": "https://tidox.online",
+      "description": "Privacy-first mobile apps: IPTV Player, AI Transcription, Task Manager",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tidox.online/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "SoftwareApplication",
+          "position": 1,
+          "name": "Tidox Player",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Android",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Advanced IPTV & media player with Chromecast, Android TV, and VR support"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 2,
+          "name": "Offline Transcript",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Android",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Privacy-first audio transcription powered by OpenAI Whisper"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 3,
+          "name": "Local Listen",
+          "applicationCategory": "MusicApplication",
+          "operatingSystem": "Android",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "AI-powered audio intelligence platform with on-device ML categorization and video-to-audio extraction"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 4,
+          "name": "Task Manager",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Android",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Simple, powerful task management for modern teams"
+        }
+      ]
+    }
+    </script>
+
+    <link href="./src/assets/css/output.css" rel="stylesheet">
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-8027163152836505" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-<body>
-	<!-- Hero(extended) navbar -->
-	<!--div class="navbar navbar--extended">
-		<nav class="nav__mobile"></nav>
-		<div class="container">
-			<div class="navbar__inner">
-				<a href="index.html" class="navbar__logo">Tidox</a>
-				<nav class="navbar__menu">
-					<ul>
-						<li><a href="#">Option</a></li>
-						<li><a href="#">Option 2</a></li>
-					</ul>
-				</nav>
-				<div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path></svg></a></div>
-			</div>
-		</div>
-	</div-->
-	<!-- Hero unit -->
-	<div class="hero">
-		<div class="hero__overlay hero__overlay--gradient"></div>
-		<div class="hero__mask"></div>
-		<div class="hero__inner">
-			<div class="container">
-				<div class="hero__content">
-					<div class="hero__content__inner" id='navConverter'>
-						<h1 class="hero__title">A developer team creating amazing mobile apps</h1>
-						<p class="hero__text">We focus our expertise to deliver high quality mobile app. Try now our latest one available on Play Store:</p>
-						<a href="https://play.google.com/store/apps/details?id=online.tidox.player.cast" class="button button__accent">Download</a>
-						<!--a href="#" class="button hero__button">Learn more</a-->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="hero__sub">
-		<span id="scrollToNext" class="scroll">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class='hero__sub__down' fill="currentColor" width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3z"/></svg>
-		</span>
-	</div>
-	<!-- Steps -->
-	<div class="steps landing__section">
-		<div class="container">
-			<h2>Tidox Player</h2>
-			<p>A modern player that will surprise you.</p>
-		</div>
-		<!--div class="container">
-			<div class="steps__inner">
-				<div class="step">
-					<div class="step__media">
-						<img src="./images/undraw_designer.svg" class="step__image">
-					</div>
-					<h4>Programmers</h4>
-					<p class="step__text">A landing page for your open source projects. Present your solution, easily create docs.</p>
-				</div>
-				<div class="step">
-					<div class="step__media">
-						<img src="./images/undraw_responsive.svg" class="step__image">
-					</div>
-					<h4>Designers</h4>
-					<p class="step__text">A website for your own freebies. Let the world download and use your artwork.</p>
-				</div>
-				<div class="step">
-					<div class="step__media">
-						<img src="./images/undraw_creation.svg" class="step__image">
-					</div>
-					<h4>Makers</h4>
-					<p class="step__text">A great starting point for your web application. Focus on your idea and execution.</p>
-				</div>
-			</div>
-		</div-->
-	</div>
-	<div class="expanded landing__section">
-		<div class="container">
-			<div class="expanded__inner">
-				<div class="expanded__media">
-					<img src="./images/shoot.png" class="expanded__image">
-				</div>
-				<div class="expanded__content">
-					<h2 class="expanded__title">Video player</h2>
-					<p class="expanded__text">Add your stream url (m3u, m3u8, mp4, etc..) or authorize the app to list your local videos. </p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="expanded landing__section">
-		<div class="container">
-			<div class="expanded__inner">
-				<div class="expanded__media">
-					<img src="https://vignette.wikia.nocookie.net/logopedia/images/9/9d/Google_Cast.svg" class="expanded__image">
-				</div>
-				<div class="expanded__content">
-					<h2 class="expanded__title">Cast support</h2>
-					<p class="expanded__text">Cast your videos and streams from the Tidox Player app.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="expanded landing__section">
-		<div class="container">
-			<div class="expanded__inner">
-				<div class="expanded__media">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Android_tv_logo.svg" class="expanded__image">
-				</div>
-				<div class="expanded__content">
-					<h2 class="expanded__title">Tidox Player for Android TV</h2>
-					<p class="expanded__text">Officially available on Play store for big screens is a must to have on your Android TV device.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Call To Action -->
-	<div class="cta cta--reverse">
-		<div class="container">
-			<div class="cta__inner">
-				<h2 class="cta__title">Try it now</h2>
-				<p class="cta__sub cta__sub--center">Grab the latenst version and run the player instantly.</p>
-				<a href="#" class="button button__accent">Tidox Player</a>
-			</div>
-		</div>
-	</div>
-	<!-- Footer -->
-	<div class="footer footer--dark">
-		<div class="container">
-			<div class="footer__inner">
-				<a href="index.html" class="footer__textLogo">Tidox team</a>
-				<!--div class="footer__data">
-					<div class="footer__data__item">
-						<div class="footer__row">
-							Created by <a href="https://twitter.com/ninalimpi" target="_blank" class="footer__link">Katerina Limpitsouni</a>
-						</div>
-						<div class="footer__row">
-						Code/design by <a href="https://twitter.com/anges244" target="_blank" class="footer__link">Aggelos Gesoulis</a>
-						</div>
-					</div>
-					<div class="footer__data__item">
-						<div class="footer__row">Created for <a href="https://undraw.co" target="_blank" class="footer__link">unDraw</a>
-						</div>
-						<div class="footer__row">Special thx to <a href="https://shareboost.co" target="_blank" class="footer__link">ShareBoost</a> for the support
-						</div>
-					</div>
-					<div class="footer__data__item">
-					<div class="footer__row">
-						<a href="https://github.com/anges244/evie" target="_blank" class="footer__link">GitHub</a>
-					</div>
-					<div class="footer__row">
-						<a href="https://twitter.com/undraw_co" target="_blank" class="footer__link">Twitter</a>
-					</div>
-					<div class="footer__row">
-						<a href="https://www.facebook.com/undraw.co/" target="_blank" class="footer__link">Facebook</a>
-					</div>
-					<div class="footer__row">
-						<a href="./additional.html" class="footer__link">MIT license</a>
-					</div>
-				</div>
-			</div-->
-		</div>
-	</div>
-<script src='js/app.min.js'></script>
-<!-- Begin of Chaport Live Chat code -->
-<script type="text/javascript">
+<body class="bg-gray-50 dark:bg-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Tidox</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-primary-600 font-medium">Home</a>
+                    <a href="/src/pages/player.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Player</a>
+                    <a href="/src/pages/transcript.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Transcript</a>
+                    <a href="/src/pages/local-listen.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Local Listen</a>
+                    <a href="/src/pages/task-manager.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Task Manager</a>
+                    <a href="/src/pages/pricing.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Pricing</a>
+                    <a href="/src/pages/about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">About</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#products" aria-label="Navigate to products section" class="hidden md:block px-6 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors">
+                    Get Apps
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Bold & Unique -->
+    <main>
+    <section class="pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                    Privacy-First<br/>
+                    <span class="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Mobile Innovation</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+                    Three powerful Android apps designed for users who value privacy, performance, and modern technology.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#products" class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg text-lg transition-all transform hover:scale-105">
+                        Explore Our Apps
+                    </a>
+                    <a href="/src/pages/about.html" class="px-8 py-4 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-lg text-lg border-2 border-gray-300 dark:border-gray-600 transition-all">
+                        Learn Our Story
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+                <div>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">4</div>
+                    <div class="text-gray-600 dark:text-gray-400">Innovative Apps</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">100%</div>
+                    <div class="text-gray-600 dark:text-gray-400">Privacy-First</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">Free</div>
+                    <div class="text-gray-600 dark:text-gray-400">Core Features</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">Android</div>
+                    <div class="text-gray-600 dark:text-gray-400">Available Now</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section - Custom Card Design -->
+    <section id="products" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                    Our Product Ecosystem
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Each app solves a specific problem with cutting-edge technology and user-first design.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Tidox Player Card -->
+                <div class="group bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border-2 border-purple-200 dark:border-purple-900 hover:border-primary-500 dark:hover:border-primary-500 transition-all hover:shadow-2xl transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Tidox Player</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Advanced IPTV & media player with Chromecast, Android TV, and VR support. Stream anything, anywhere.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-primary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>M3U8, HLS, IPTV support</span>
+                        </li>
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-primary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Chromecast & Android TV</span>
+                        </li>
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-primary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>VR video playback</span>
+                        </li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=online.tidox.player.cast&hl=en" target="_blank" rel="noopener" class="block text-center py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors">
+                        Download on Play Store →
+                    </a>
+                </div>
+
+                <!-- Offline Transcript Card -->
+                <div class="group bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border-2 border-green-200 dark:border-green-900 hover:border-primary-500 dark:hover:border-primary-500 transition-all hover:shadow-2xl transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-secondary-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Offline Transcript</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Privacy-first audio transcription powered by OpenAI Whisper. Your audio never leaves your device.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-secondary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>100% on-device processing</span>
+                        </li>
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-secondary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>OpenAI Whisper AI engine</span>
+                        </li>
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-secondary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>No cloud, no data sharing</span>
+                        </li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=online.tidox.transcriber.free&hl=en" target="_blank" rel="noopener" class="block text-center py-3 bg-secondary-600 hover:bg-secondary-700 text-white font-semibold rounded-lg transition-colors">
+                        Download on Play Store →
+                    </a>
+                </div>
+
+                <!-- Local Listen Card -->
+                <div class="group bg-gradient-to-br from-violet-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border-2 border-violet-200 dark:border-violet-900 hover:border-primary-500 dark:hover:border-primary-500 transition-all hover:shadow-2xl transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-violet-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Local Listen</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        AI-powered audio intelligence with on-device ML categorization. Organize, play, and extract audio privately.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-violet-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>On-device ML categorization</span>
+                        </li>
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-violet-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Video-to-audio extraction</span>
+                        </li>
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-violet-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Interactive waveform player</span>
+                        </li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=online.tidox.local.listen&hl=en" target="_blank" rel="noopener" class="block text-center py-3 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-lg transition-colors">
+                        Download on Play Store →
+                    </a>
+                </div>
+
+                <!-- Task Manager Card -->
+                <div class="group bg-gradient-to-br from-orange-50 to-pink-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border-2 border-orange-200 dark:border-orange-900 hover:border-primary-500 dark:hover:border-primary-500 transition-all hover:shadow-2xl transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Task Manager</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Simple, powerful task management for modern teams. Coming soon with innovative features.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-primary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Project-based organization</span>
+                        </li>
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-primary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Team collaboration</span>
+                        </li>
+                        <li class="flex items-start text-gray-700 dark:text-gray-300">
+                            <svg class="w-5 h-5 text-primary-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Priority tracking</span>
+                        </li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=online.tidox.task&hl=en" target="_blank" rel="noopener" class="block text-center py-3 bg-gradient-to-r from-primary-600 to-secondary-600 hover:opacity-90 text-white font-semibold rounded-lg transition-opacity">
+                        Download on Play Store →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Tidox -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                    Why Choose Tidox?
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    We build apps differently. Privacy, innovation, and user experience come first.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Privacy-First</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Your data stays on your device. No cloud processing, no tracking.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary-100 dark:bg-secondary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Modern Tech</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Built with cutting-edge technology: AI, VR, edge computing.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Free Forever</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Core features are free. Upgrade only if you need premium features.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Active Development</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Regular updates, new features, and responsive support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Experience Tidox?
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Download our apps for free and discover the difference privacy-first technology makes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#products" class="px-8 py-4 bg-white hover:bg-gray-100 text-primary-600 font-semibold rounded-lg text-lg transition-colors inline-flex items-center justify-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"/>
+                    </svg>
+                    Choose Your App
+                </a>
+                <a href="/src/pages/about.html" class="px-8 py-4 bg-transparent hover:bg-white/10 text-white font-semibold rounded-lg text-lg border-2 border-white transition-colors">
+                    Learn More About Us
+                </a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold text-xl mb-4">Tidox</h3>
+                    <p class="text-gray-400">Privacy-first mobile apps for modern life.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/src/pages/player.html" class="hover:text-primary-400">Tidox Player</a></li>
+                        <li><a href="/src/pages/transcript.html" class="hover:text-primary-400">Offline Transcript</a></li>
+                        <li><a href="/src/pages/local-listen.html" class="hover:text-primary-400">Local Listen</a></li>
+                        <li><a href="/src/pages/task-manager.html" class="hover:text-primary-400">Task Manager</a></li>
+                        <li><a href="/src/pages/pricing.html" class="hover:text-primary-400">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/src/pages/about.html" class="hover:text-primary-400">About Us</a></li>
+                        <li><a href="/src/pages/contact.html" class="hover:text-primary-400">Contact</a></li>
+                        <li><a href="/privacy_policy.html" class="hover:text-primary-400">Privacy Policy</a></li>
+                        <li><a href="/src/pages/terms.html" class="hover:text-primary-400">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Connect</h4>
+                    <p class="text-gray-400 mb-4">Follow us for updates and news</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-400">Twitter</a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>© 2025 Tidox. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chaport Live Chat code -->
+    <script type="text/javascript">
 	(function(w,d,v2){
 	w.chaport = { app_id : '5b107c04a0b66d7b8919d97c' };
-	
+
 	v2=w.chaport;v2._q=[];v2._l={};v2.q=function(){v2._q.push(arguments)};v2.on=function(e,fn){if(!v2._l[e])v2._l[e]=[];v2._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
 	</script>
 	<!-- End of Chaport Live Chat code -->
