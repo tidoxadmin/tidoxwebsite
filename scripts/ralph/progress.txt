@@ -110,3 +110,30 @@
 
 ---
 
+## 2026-01-25 20:00 - US-005 Create Audio Hub product landing page
+
+### What was implemented
+- Created `/src/pages/audio-hub.html` following the established page template
+- Hero section with indigo-blue gradient (`from-indigo-50 to-blue-50`)
+- Badge: "Premium Audio Experience" with star icon
+- 6 feature cards: Intelligent Organization, Smart Categorization, Premium Audio Quality, Cloud Backup, Cross-Device Sync, Advanced Metadata
+- Premium pricing section (single card, no Free tier since this is a paid-only app at €2.49)
+- "Part of the Tidox Ecosystem" section linking to Player, Local Listen, and Offline Audio
+- CTA section with indigo-blue gradient
+- Play Store link: `online.tidox.audio.hub`
+- Consistent navigation and footer matching other pages
+- Full dark mode support with `dark:` variants
+
+### Files changed
+- `src/pages/audio-hub.html` (NEW - ~230 lines)
+- `scripts/ralph/prd.json` (updated passes: true for US-005)
+
+### Learnings for future iterations
+- **Paid-only apps**: For apps without a free version, adapt the pricing section to showcase the single premium offering prominently
+- **One-time purchase messaging**: Emphasize "No subscriptions. No hidden fees." to highlight value proposition
+- **Ecosystem links**: Audio Hub naturally connects to other audio-focused apps (Player, Local Listen, Offline Audio) - show these relationships
+- **Feature icon consistency**: Use lightbulb for intelligence, tag for categorization, music-note for audio quality, cloud for backup, arrows for sync, pencil for editing
+- **Premium badge pattern**: Use star icon with `bg-{color}-100 dark:bg-{color}-900/50` for premium product badges
+
+---
+
