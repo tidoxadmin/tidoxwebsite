@@ -45,7 +45,7 @@
       "@type": "WebSite",
       "name": "Tidox",
       "url": "https://tidox.online",
-      "description": "Privacy-first mobile apps: IPTV Player, Universal Remote, Guitar Tuner, AI Transcription, Local Listen, Task Manager",
+      "description": "Privacy-first Android apps: IPTV Player, VR Player, Audio Hub, Local Listen, Offline Audio, Transcript, Scanner, Task Manager, Universal Remote, Guitar Tuner",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://tidox.online/?s={search_term_string}",
@@ -64,77 +64,105 @@
           "name": "Tidox Player",
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Android",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
+          "offers": [
+            {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "name": "Free"},
+            {"@type": "Offer", "price": "4.99", "priceCurrency": "EUR", "name": "Pro"}
+          ],
           "description": "Advanced IPTV & media player with Chromecast, Android TV, and VR support"
         },
         {
           "@type": "SoftwareApplication",
           "position": 2,
-          "name": "Tidox Universal Remote",
-          "applicationCategory": "UtilitiesApplication",
+          "name": "VR Tidox Player 360",
+          "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Android",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "description": "Control any TV from your phone with IR blaster, WiFi discovery, and ML-powered camera pairing"
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+          "description": "Immersive 360-degree video experience with VR headset support and spatial audio"
         },
         {
           "@type": "SoftwareApplication",
           "position": 3,
-          "name": "Tidox Guitar Tuner",
+          "name": "Tidox Pro: Audio Hub",
           "applicationCategory": "MusicApplication",
           "operatingSystem": "Android",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "description": "Professional chromatic tuner with YIN pitch detection algorithm and visual needle dial"
+          "offers": {"@type": "Offer", "price": "2.49", "priceCurrency": "EUR"},
+          "description": "Premium audio organization and management with intelligent categorization"
         },
         {
           "@type": "SoftwareApplication",
           "position": 4,
-          "name": "Offline Transcript",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Android",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "description": "Privacy-first audio transcription powered by OpenAI Whisper"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "position": 5,
           "name": "Local Listen",
           "applicationCategory": "MusicApplication",
           "operatingSystem": "Android",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
           "description": "AI-powered audio intelligence platform with on-device ML categorization and video-to-audio extraction"
         },
         {
           "@type": "SoftwareApplication",
+          "position": 5,
+          "name": "Tidox: Offline Audio Player",
+          "applicationCategory": "MusicApplication",
+          "operatingSystem": "Android",
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+          "description": "Lightweight, privacy-first audio player for local music. No internet required."
+        },
+        {
+          "@type": "SoftwareApplication",
           "position": 6,
-          "name": "Task Manager",
+          "name": "Offline Transcript",
+          "alternateName": "VoxaNotes",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Android",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "description": "Simple, powerful task management for modern teams"
+          "offers": [
+            {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "name": "Free"},
+            {"@type": "Offer", "price": "4.99", "priceCurrency": "EUR", "name": "Premium"}
+          ],
+          "description": "Privacy-first audio transcription powered by OpenAI Whisper. 100% on-device processing."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 7,
+          "name": "Tidox Scanner",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Android",
+          "offers": [
+            {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "name": "Free"},
+            {"@type": "Offer", "price": "3.99", "priceCurrency": "EUR", "name": "Pro"}
+          ],
+          "description": "Offline document scanner with OCR processing, PDF export, and batch scanning"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 8,
+          "name": "Tidox Task Manager",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Android",
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+          "description": "Simple, powerful task management for modern teams with project organization"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 9,
+          "name": "Tidox Universal Remote",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Android",
+          "offers": [
+            {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "name": "Free"},
+            {"@type": "Offer", "price": "4.99", "priceCurrency": "EUR", "name": "Premium"}
+          ],
+          "description": "Control any TV from your phone with IR blaster, WiFi discovery, and smart camera pairing"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 10,
+          "name": "Tidox Guitar Tuner",
+          "applicationCategory": "MusicApplication",
+          "operatingSystem": "Android",
+          "offers": [
+            {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "name": "Free"},
+            {"@type": "Offer", "price": "2.99", "priceCurrency": "EUR", "name": "Premium"}
+          ],
+          "description": "Professional chromatic tuner with YIN pitch detection algorithm and visual needle dial"
         }
       ]
     }

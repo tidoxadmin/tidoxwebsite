@@ -271,3 +271,66 @@
 
 ---
 
+## 2026-01-25 - US-010 Consolidate Transcript naming (VoxaNotes alignment)
+
+### What was implemented
+- Updated `/src/pages/transcript.html` to reference VoxaNotes as the Play Store name
+- Added a visually distinct badge in the hero section: "Available on Play Store as VoxaNotes" with info icon
+- Updated hero CTA button: "Download VoxaNotes on Play Store"
+- Updated bottom CTA section: "Download VoxaNotes" and "Get VoxaNotes on Google Play"
+- Enhanced JSON-LD structured data with `alternateName: "VoxaNotes"` for SEO
+- Updated meta description, Open Graph description, and Twitter description to mention VoxaNotes
+- Changed priceCurrency in JSON-LD from USD to EUR (consistency with other pages)
+- Kept "Offline Transcript" as the primary website name per established branding
+
+### Files changed
+- `src/pages/transcript.html` (17 insertions, 8 deletions)
+- `scripts/ralph/prd.json` (updated passes: true for US-010)
+
+### Learnings for future iterations
+- **Brand name mapping**: When Play Store name differs from website name, use both strategically - website name in title/h1, Play Store name in CTAs and meta descriptions
+- **Schema.org alternateName**: Use this property to help search engines understand name variations without confusing primary branding
+- **Badge pattern for notices**: Use `inline-flex items-center px-3 py-1 bg-{color}-100 rounded-full` with SVG icon for informational badges
+- **SEO for name variations**: Include alternate names in descriptions to capture searches for both brand names
+- **Currency consistency**: Use EUR for pricing on European-focused apps
+
+---
+
+## 2026-01-25 - US-011 Update structured data (JSON-LD) with all products
+
+### What was implemented
+- Updated `index.html` ItemList schema from 6 products to all 10 products
+- Updated WebSite schema description to list all 10 products: "IPTV Player, VR Player, Audio Hub, Local Listen, Offline Audio, Transcript, Scanner, Task Manager, Universal Remote, Guitar Tuner"
+- Products organized by position matching homepage categories:
+  - Position 1-5: Media & Entertainment (Player, VR Player, Audio Hub, Local Listen, Offline Audio)
+  - Position 6-8: Productivity (Transcript, Scanner, Task Manager)
+  - Position 9-10: Smart Home & Music (Remote, Guitar Tuner)
+- Added proper offers arrays for freemium products (both Free and Premium/Pro offers)
+- Added `alternateName: "VoxaNotes"` to Transcript entry in ItemList
+- Standardized all product page JSON-LD schemas to use EUR currency (was USD in older pages)
+- Consolidated offer format across all pages to compact single-line JSON
+
+### Files changed
+- `index.html` (JSON-LD ItemList and WebSite schemas)
+- `src/pages/player.html` (USD→EUR, added Pro offer)
+- `src/pages/remote-control.html` (USD→EUR)
+- `src/pages/guitar-tuner.html` (USD→EUR)
+- `src/pages/local-listen.html` (USD→EUR)
+- `src/pages/task-manager.html` (USD→EUR)
+- `src/pages/vr-player.html` (USD→EUR, removed redundant "name" field)
+- `src/pages/offline-audio.html` (USD→EUR)
+- `src/pages/scanner.html` (USD→EUR for free offer)
+- `scripts/ralph/prd.json` (updated passes: true for US-011)
+
+### Learnings for future iterations
+- **Currency standardization**: All Tidox products should use EUR for consistency. Old pages may have USD from earlier template.
+- **Freemium vs Free-only vs Premium-only**: Three offer patterns exist:
+  - Freemium: Array with two offers (Free + Pro/Premium) - Player, Transcript, Scanner, Remote, Guitar Tuner
+  - Free-only: Single offer with price=0 - VR Player, Local Listen, Task Manager, Offline Audio
+  - Premium-only: Single offer with actual price - Audio Hub (€2.49)
+- **ItemList position ordering**: Should match visual hierarchy on homepage (categories, then products within)
+- **applicationCategory values**: MultimediaApplication (video players), MusicApplication (audio players/tuners), BusinessApplication (productivity), UtilitiesApplication (remote control)
+- **Compact JSON format**: Use single-line offers `{"@type": "Offer", "price": "0", ...}` for cleaner, more maintainable code
+
+---
+
