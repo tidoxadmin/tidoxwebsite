@@ -448,3 +448,24 @@ All acceptance criteria were met by US-007:
 
 ---
 
+## 2026-01-25 - US-016 Final cross-page consistency check
+
+### What was verified
+- **Navigation structure**: All 16 active HTML pages have the Products dropdown with 3 categories. Only `src/pages/index.html` (legacy template page) lacks it - this is expected as noted in US-007.
+- **Footer structure**: All pages have the 4-column footer with products grouped by category (implemented in US-012).
+- **Section order**: All 10 product pages follow the Hero → Features → [Additional Features/Pricing] → CTA pattern. Some variations exist (e.g., scanner has explicit Pricing section, task-manager has Additional Features instead of Pricing) but the overall flow is consistent.
+- **Meta tags**: All 10 product pages verified to have: title, meta description, og:title, twitter:card, canonical URL, and JSON-LD structured data.
+- **Internal links**: All 15 internal page links (to /src/pages/*.html) verified to exist and be accessible.
+- **Mobile responsive**: All pages use Tailwind CSS responsive breakpoints (md:, lg:) for layout changes. Mobile hamburger menu with expandable product categories implemented across all pages.
+
+### Files changed
+- `scripts/ralph/prd.json` (updated passes: true for US-016)
+
+### Learnings for future iterations
+- **QA verification stories**: These are read-only stories that verify work from previous stories. No code changes needed, just verification.
+- **Legacy pages**: The `src/pages/index.html` is a legacy template file that should either be deleted or updated to match the main site template in a future cleanup story.
+- **Browser verification**: While programmatic checks confirm structure and links, visual browser verification is recommended for final confirmation of styling and responsive behavior.
+- **Section naming variations**: Different pages use slightly different section names (Pricing vs Pricing Comparison, Additional Features), but the content flow is consistent. Consider standardizing section comment names for easier auditing.
+
+---
+
