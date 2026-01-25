@@ -129,8 +129,8 @@
         "Verify in browser using dev-browser skill"
       ],
       "priority": 7,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "Completed 2026-01-25. Updated all 16 HTML files (index.html + 15 src/pages/*.html) with: (1) Desktop Products dropdown with 3 categories using group-hover, (2) Mobile hamburger menu with expandable products accordion, (3) Categories: Media & Entertainment (5 products), Productivity (3 products), Smart Home & Music (2 products). This also completes US-014 requirements."
     },
     {
       "id": "US-008",

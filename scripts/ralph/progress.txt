@@ -165,3 +165,48 @@
 
 ---
 
+## 2026-01-25 22:30 - US-007 Update navigation with all products dropdown
+
+### What was implemented
+- Updated navigation across ALL 16 HTML files (index.html + 15 src/pages/*.html)
+- Desktop: Products dropdown with CSS-only hover (`group-hover:opacity-100 group-hover:visible`)
+- Mobile: Hamburger menu with expandable products accordion using JavaScript toggles
+- Three product categories:
+  - **Media & Entertainment** (5 products): Tidox Player, VR Player 360, Audio Hub, Local Listen, Offline Audio
+  - **Productivity** (3 products): Offline Transcript, Scanner, Task Manager
+  - **Smart Home & Music** (2 products): Universal Remote, Guitar Tuner
+- Kept Pricing and About as top-level navigation links
+- Mobile menu has expandable/collapsible product categories with chevron rotation animation
+- Dark mode support for all dropdown and mobile menu elements
+
+### Files changed
+- `index.html` (navigation + mobile menu + script)
+- `src/pages/player.html`
+- `src/pages/remote-control.html`
+- `src/pages/guitar-tuner.html`
+- `src/pages/task-manager.html`
+- `src/pages/transcript.html`
+- `src/pages/local-listen.html`
+- `src/pages/about.html`
+- `src/pages/pricing.html`
+- `src/pages/contact.html`
+- `src/pages/privacy.html`
+- `src/pages/terms.html`
+- `src/pages/scanner.html`
+- `src/pages/vr-player.html`
+- `src/pages/audio-hub.html`
+- `src/pages/offline-audio.html`
+- `scripts/ralph/prd.json` (updated passes: true for US-007)
+
+### Learnings for future iterations
+- **CSS-only dropdowns**: Use Tailwind's `group` and `group-hover:` for desktop hover dropdowns without JavaScript
+- **Mobile menu pattern**: Add `hidden` class and toggle with JavaScript; use `classList.toggle('hidden')`
+- **Dropdown positioning**: `absolute left-0 mt-2` positions dropdown below the trigger; `z-50` ensures it appears above content
+- **Transition effects**: `opacity-0 invisible` → `group-hover:opacity-100 group-hover:visible` with `transition-all duration-200` for smooth appearance
+- **Category headers**: Use `text-xs font-semibold text-gray-500 uppercase tracking-wider` for small, muted category labels
+- **Touch targets**: Mobile menu items use `px-3 py-2` for sufficient tap targets (approximately 44px height)
+- **Navigation consistency**: The src/pages/index.html file is a legacy file with different styling - left unchanged as it uses a completely different template
+- **This also satisfies US-014**: Mobile hamburger menu with expandable categories was implemented as part of this story
+
+---
+

@@ -8,6 +8,7 @@
     <link href="/src/assets/css/output.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Navigation -->
     <nav class="fixed w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -16,19 +17,92 @@
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Home</a>
-                    <a href="/src/pages/player.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Player</a>
-                    <a href="/src/pages/remote-control.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Remote</a>
-                    <a href="/src/pages/guitar-tuner.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Tuner</a>
-                    <a href="/src/pages/transcript.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Transcript</a>
-                    <a href="/src/pages/pricing.html" class="text-primary-600 font-medium">Pricing</a>
+                    <!-- Products Dropdown -->
+                    <div class="relative group">
+                        <button class="text-gray-700 dark:text-gray-300 hover:text-primary-600 font-medium inline-flex items-center">
+                            Products
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-72 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div class="p-4">
+                                <div class="mb-4">
+                                    <h4 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Media & Entertainment</h4>
+                                    <a href="/src/pages/player.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Tidox Player</a>
+                                    <a href="/src/pages/vr-player.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">VR Player 360</a>
+                                    <a href="/src/pages/audio-hub.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Audio Hub</a>
+                                    <a href="/src/pages/local-listen.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Local Listen</a>
+                                    <a href="/src/pages/offline-audio.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Offline Audio</a>
+                                </div>
+                                <div class="mb-4">
+                                    <h4 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Productivity</h4>
+                                    <a href="/src/pages/transcript.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Offline Transcript</a>
+                                    <a href="/src/pages/scanner.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Scanner</a>
+                                    <a href="/src/pages/task-manager.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Task Manager</a>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Smart Home & Music</h4>
+                                    <a href="/src/pages/remote-control.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Universal Remote</a>
+                                    <a href="/src/pages/guitar-tuner.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-lg transition-colors">Guitar Tuner</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/src/pages/pricing.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">Pricing</a>
                     <a href="/src/pages/about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary-600">About</a>
                 </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700 dark:text-gray-300 hover:text-primary-600" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
                 <a href="/#products" class="hidden md:block px-6 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors">
                     Get Apps
                 </a>
             </div>
         </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-2">
+                <a href="/" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 rounded-lg">Home</a>
+                <div class="border-b border-gray-200 dark:border-gray-700 pb-2">
+                    <button id="mobile-products-btn" class="w-full flex justify-between items-center px-3 py-2 text-gray-700 dark:text-gray-300 font-medium">
+                        Products
+                        <svg id="mobile-products-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="mobile-products-menu" class="hidden pl-4 mt-2 space-y-1">
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-3 pt-2">Media & Entertainment</p>
+                        <a href="/src/pages/player.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Tidox Player</a>
+                        <a href="/src/pages/vr-player.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">VR Player 360</a>
+                        <a href="/src/pages/audio-hub.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Audio Hub</a>
+                        <a href="/src/pages/local-listen.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Local Listen</a>
+                        <a href="/src/pages/offline-audio.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Offline Audio</a>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-3 pt-2">Productivity</p>
+                        <a href="/src/pages/transcript.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Offline Transcript</a>
+                        <a href="/src/pages/scanner.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Scanner</a>
+                        <a href="/src/pages/task-manager.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Task Manager</a>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-3 pt-2">Smart Home & Music</p>
+                        <a href="/src/pages/remote-control.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Universal Remote</a>
+                        <a href="/src/pages/guitar-tuner.html" class="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600">Guitar Tuner</a>
+                    </div>
+                </div>
+                <a href="/src/pages/pricing.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 rounded-lg">Pricing</a>
+                <a href="/src/pages/about.html" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 rounded-lg">About</a>
+                <a href="/#products" class="block px-3 py-2 mt-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg text-center">Get Apps</a>
+            </div>
+        </div>
     </nav>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        document.getElementById('mobile-products-btn').addEventListener('click', function() {
+            document.getElementById('mobile-products-menu').classList.toggle('hidden');
+            document.getElementById('mobile-products-icon').classList.toggle('rotate-180');
+        });
+    </script>
 
     <section class="pt-32 pb-20 px-4">
         <div class="max-w-7xl mx-auto">
