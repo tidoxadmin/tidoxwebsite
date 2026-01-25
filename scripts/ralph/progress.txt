@@ -210,3 +210,64 @@
 
 ---
 
+## 2026-01-25 23:30 - US-008 Update homepage product grid to show all 10 products
+
+### What was implemented
+- Updated stats bar from "6 Innovative Apps" to "10 Innovative Apps"
+- Updated hero description: "Ten powerful Android apps designed for users who value privacy, performance, and modern technology"
+- Reorganized products section into 3 categories with visual headers:
+  - **Media & Entertainment** (5 products): Tidox Player, VR Player 360, Audio Hub, Local Listen, Offline Audio
+  - **Productivity** (3 products): Offline Transcript, Scanner, Task Manager
+  - **Smart Home & Music** (2 products): Universal Remote, Guitar Tuner
+- Converted product cards from static cards with Play Store badges to clickable links pointing to landing pages
+- Added "Learn more →" CTA text to each card
+- Added Premium badge for Audio Hub (paid-only app €2.49)
+- Category headers include descriptive icons
+- Product-specific color schemes maintained for each card
+
+### Files changed
+- `index.html` (298 insertions, 200 deletions)
+- `scripts/ralph/prd.json` (updated passes: true for US-008)
+
+### Learnings for future iterations
+- **Product counts**: The PRD referenced 9 products, but products.js has 10 (Guitar Tuner was already on site). Always verify against the source data file.
+- **Clickable cards vs Play Store buttons**: For a portfolio homepage, linking to landing pages (where detailed info + Play Store links exist) provides better UX than direct Play Store links
+- **Category organization**: 3 categories works well visually. Categories should have 2+ products each to justify the header overhead
+- **Premium badges**: Use small pill-shaped badges (`px-2 py-0.5 bg-{color}-100 text-{color}-600 text-xs font-semibold rounded-full`) for premium/paid indicators
+- **"Learn more" pattern**: Color the CTA text to match the product's accent color and add `group-hover:underline` for hover feedback
+- **Card density**: With 10 products, using 2 feature bullets per card (instead of 3) keeps cards compact while still informative
+
+---
+
+## 2026-01-25 - US-009 Update pricing page with all products
+
+### What was implemented
+- Completely rewrote `/src/pages/pricing.html` to include all 10 products
+- Organized into 3 category sections with icons:
+  - **Media & Entertainment** (5 products): Player (Free/Pro €4.99), VR Player 360 (Free), Audio Hub (€2.49 paid-only), Local Listen (Free), Offline Audio (Free)
+  - **Productivity** (3 products): Transcript (Free/Premium €4.99), Scanner (Free/Pro €3.99), Task Manager (Free)
+  - **Smart Home & Music** (2 products): Remote (Free/Premium €4.99), Guitar Tuner (Free/Premium €2.99)
+- Three card layout patterns based on pricing model:
+  - **Freemium apps**: 2-column grid with Free (gray icon) and Premium (colored, PREMIUM badge) cards
+  - **Free-only apps**: Single centered card with "FREE FOREVER" badge (VR Player, Local Listen, Offline Audio, Task Manager)
+  - **Premium-only apps**: Single centered card with "PREMIUM APP" badge (Audio Hub)
+- All prices displayed in EUR with "One-time purchase" subtitle
+- Play Store links for all product variants (free and premium)
+- Updated footer with all products grouped by category
+- Full dark mode support with `dark:` variants
+- Responsive design: single column on mobile, 2-column grid on tablet/desktop
+
+### Files changed
+- `src/pages/pricing.html` (complete rewrite, ~635 lines)
+- `scripts/ralph/prd.json` (updated passes: true for US-009)
+
+### Learnings for future iterations
+- **Three pricing models**: Freemium (Player, Transcript, Scanner, Remote, Guitar Tuner), Free-only (VR Player, Local Listen, Offline Audio, Task Manager), Premium-only (Audio Hub)
+- **Card layout by model**: 2-column for freemium allows side-by-side comparison; single centered card for free-only/premium-only keeps visual weight balanced
+- **Badge patterns**: "FREE FOREVER" uses colored background matching product; "PREMIUM APP" uses solid colored background
+- **Play Store ID differences**: Guitar Tuner uses `com.tidox.*` prefix while others use `online.tidox.*`
+- **Footer consistency**: The new footer groups products by category (Media & Entertainment, Productivity, Smart Home & Music) plus Company links
+- **Price formatting**: Use € symbol followed by number, "One-time purchase" subtitle reinforces no subscription
+
+---
+

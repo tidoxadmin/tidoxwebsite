@@ -148,8 +148,8 @@
         "Verify in browser using dev-browser skill"
       ],
       "priority": 8,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "Completed 2026-01-25. Updated homepage with all 10 products organized into 3 categories: Media & Entertainment (5), Productivity (3), Smart Home & Music (2). Stats bar updated to show 10 apps. Cards converted to clickable links with 'Learn more' CTAs."
     },
     {
       "id": "US-009",
@@ -166,8 +166,8 @@
         "Verify in browser using dev-browser skill"
       ],
       "priority": 9,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "Completed 2026-01-25. Updated pricing.html with all 10 products organized into 3 categories: Media & Entertainment (5), Productivity (3), Smart Home & Music (2). Different card layouts for: freemium apps (2-col grid), free-only apps (single card with FREE FOREVER badge), premium-only apps (single card with PREMIUM APP badge). Prices in EUR. Footer updated with all products grouped by category."
     },
     {
       "id": "US-010",
