@@ -419,3 +419,32 @@ All acceptance criteria were met by US-007:
 
 ---
 
+## 2026-01-25 - US-015 Update sitemap.xml with new pages
+
+### What was implemented
+- Reorganized sitemap.xml with XML comments organizing URLs by category
+- Added 5 new product page entries:
+  - `vr-player.html` (Media & Entertainment)
+  - `audio-hub.html` (Media & Entertainment)
+  - `local-listen.html` (Media & Entertainment - was also missing from original sitemap)
+  - `offline-audio.html` (Media & Entertainment)
+  - `scanner.html` (Productivity)
+- Updated all lastmod dates to `2026-01-25` for recently modified pages
+- Set priority values according to acceptance criteria:
+  - Homepage: 1.0
+  - Product pages: 0.8
+  - Pricing: 0.7
+  - Other pages (about, contact, privacy, terms): 0.5
+
+### Files changed
+- `sitemap.xml` (reorganized and expanded from 12 to 17 URL entries)
+- `scripts/ralph/prd.json` (updated passes: true for US-015)
+
+### Learnings for future iterations
+- **PRD naming vs actual files**: The PRD mentioned `remote.html` but the actual file is `remote-control.html`. Always verify actual filenames before implementing.
+- **Missing pages**: `local-listen.html` was not mentioned in the PRD acceptance criteria but was also missing from the sitemap. When updating sitemap, audit all HTML files to ensure complete coverage.
+- **Sitemap organization**: Adding XML comments to group URLs by category improves maintainability and makes it easier to verify completeness.
+- **Priority values**: The PRD specified 0.5 for "other pages" but the original sitemap had varying priorities (0.2-0.6). Standardized all non-product pages to 0.5 for simplicity.
+
+---
+

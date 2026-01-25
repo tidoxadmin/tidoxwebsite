@@ -1,17 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://tidox.online/</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Product Pages - Media & Entertainment -->
   <url>
     <loc>https://tidox.online/src/pages/player.html</loc>
-    <lastmod>2025-11-06</lastmod>
+    <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://tidox.online/src/pages/vr-player.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidox.online/src/pages/audio-hub.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidox.online/src/pages/local-listen.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidox.online/src/pages/offline-audio.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Product Pages - Productivity -->
+  <url>
+    <loc>https://tidox.online/src/pages/transcript.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidox.online/src/pages/scanner.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tidox.online/src/pages/task-manager.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Product Pages - Smart Home & Music -->
   <url>
     <loc>https://tidox.online/src/pages/remote-control.html</loc>
     <lastmod>2026-01-25</lastmod>
@@ -24,33 +73,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://tidox.online/src/pages/transcript.html</loc>
-    <lastmod>2025-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tidox.online/src/pages/task-manager.html</loc>
-    <lastmod>2025-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
+  <!-- Other Pages -->
   <url>
     <loc>https://tidox.online/src/pages/pricing.html</loc>
-    <lastmod>2025-11-06</lastmod>
+    <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tidox.online/src/pages/about.html</loc>
-    <lastmod>2025-11-06</lastmod>
+    <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tidox.online/src/pages/contact.html</loc>
-    <lastmod>2025-11-06</lastmod>
+    <lastmod>2026-01-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -58,18 +97,18 @@
     <loc>https://tidox.online/privacy_policy.html</loc>
     <lastmod>2025-11-06</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tidox.online/src/pages/privacy.html</loc>
-    <lastmod>2025-11-06</lastmod>
+    <lastmod>2026-01-25</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://tidox.online/src/pages/terms.html</loc>
-    <lastmod>2025-11-06</lastmod>
+    <lastmod>2026-01-25</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>
