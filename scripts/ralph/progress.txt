@@ -137,3 +137,31 @@
 
 ---
 
+## 2026-01-25 21:15 - US-006 Create Offline Audio Player product landing page
+
+### What was implemented
+- Created `/src/pages/offline-audio.html` following the established page template
+- Hero section with blue-sky gradient (`from-blue-50 to-sky-50`)
+- Badge: "100% Offline • No Internet Required" with crossed-out wifi icon
+- 6 feature cards: Fully Offline, Clean Interface, Battery Efficient, All Audio Formats, Folder Browsing, Privacy First
+- "Why Offline Audio?" differentiator section - explains no streaming, no sign-up, no bloat, no ads
+- Comparison box explaining difference from Local Listen (simpler vs AI-powered)
+- "Part of the Tidox Ecosystem" section linking to Player, Local Listen, and Audio Hub
+- CTA section with blue-sky gradient
+- Play Store link: `online.tidox.offline.audio`
+- Consistent navigation and footer matching other pages
+- Full dark mode support with `dark:` variants
+
+### Files changed
+- `src/pages/offline-audio.html` (NEW - ~240 lines)
+- `scripts/ralph/prd.json` (updated passes: true for US-006)
+
+### Learnings for future iterations
+- **Free-only apps**: For free-only apps without a premium tier, replace pricing section with a differentiator/comparison section
+- **Product positioning**: When there are similar products (Offline Audio vs Local Listen), include a clear comparison to help users choose
+- **Simplicity messaging**: Use negative statements effectively: "No streaming", "No sign-up", "No bloat" - these resonate with users who want lightweight apps
+- **Badge icons**: Crossed-out wifi icon works well for "offline" messaging
+- **Ecosystem awareness**: Link to related audio apps (Player, Local Listen, Audio Hub) to cross-promote within the ecosystem
+
+---
+
