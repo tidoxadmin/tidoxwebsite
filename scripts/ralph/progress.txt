@@ -85,3 +85,28 @@
 
 ---
 
+## 2026-01-25 19:30 - US-004 Create VR Player 360 product landing page
+
+### What was implemented
+- Created `/src/pages/vr-player.html` following the established page template
+- Hero section with red-orange gradient (`from-red-50 to-orange-50`)
+- Badge: "Companion App to Tidox Player"
+- 6 feature cards: 360° Video Support, VR Headset Compatible, Spatial Audio, Gesture Controls, Side-by-Side 3D, Cardboard Support
+- "Part of the Tidox Ecosystem" section positioning VR Player as companion to main Player
+- CTA with red-orange gradient
+- Play Store link: `online.tidox.player.vr`
+- Consistent navigation and footer
+- Full dark mode support
+
+### Files changed
+- `src/pages/vr-player.html` (NEW - ~215 lines)
+- `scripts/ralph/prd.json` (updated passes: true for US-004)
+
+### Learnings for future iterations
+- **Free-only apps**: VR Player has no premium version, so pricing section was replaced with "Companion App" section
+- **Ecosystem positioning**: For companion apps, include a section explaining how it fits with other products
+- **VR-specific icons**: Globe/sphere icon works well for 360°, monitor for VR headset, sound waves for spatial audio
+- **Footer consistency**: Scanner and VR Player footers are simpler than Remote page footer - may need standardization later
+
+---
+
