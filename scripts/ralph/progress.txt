@@ -334,3 +334,88 @@
 
 ---
 
+## 2026-01-25 - US-012 Update footer with complete product list
+
+### What was implemented
+- Updated all 15 HTML files (index.html + 14 src/pages/*.html) with consistent footer structure
+- New footer uses 4-column grid layout:
+  - **Column 1**: Tidox branding with updated tagline: "Privacy-first mobile apps for media, productivity, and smart home."
+  - **Column 2**: Media & Entertainment (5 products): Tidox Player, VR Player 360, Audio Hub, Local Listen, Offline Audio
+  - **Column 3**: Productivity (3 products) + Smart Home & Music (2 products): Offline Transcript, Scanner, Task Manager | Universal Remote, Guitar Tuner
+  - **Column 4**: Company links: About, Contact, Privacy Policy, Terms of Service
+- Added `transition-colors` class to all footer links for smooth hover effect
+- Updated privacy policy links from `/privacy_policy.html` to `/src/pages/privacy.html`
+- Updated copyright year from 2025 to 2026 on all pages
+- Expanded minimal footers on privacy.html and terms.html to full 4-column grid format
+
+### Files changed
+- `index.html`
+- `src/pages/player.html`
+- `src/pages/remote-control.html`
+- `src/pages/guitar-tuner.html`
+- `src/pages/transcript.html`
+- `src/pages/local-listen.html`
+- `src/pages/task-manager.html`
+- `src/pages/vr-player.html`
+- `src/pages/audio-hub.html`
+- `src/pages/offline-audio.html`
+- `src/pages/scanner.html`
+- `src/pages/about.html`
+- `src/pages/contact.html`
+- `src/pages/privacy.html`
+- `src/pages/terms.html`
+- `scripts/ralph/prd.json` (updated passes: true for US-012)
+
+### Learnings for future iterations
+- **Footer format variations**: Some pages had compact single-line footer HTML, others had formatted multi-line HTML. Standardized all to formatted multi-line for readability.
+- **Privacy policy path inconsistency**: Old footers linked to `/privacy_policy.html`, new standardized footer uses `/src/pages/privacy.html`. Both files exist; privacy.html redirects to privacy_policy.html via meta refresh.
+- **Pricing page already had updated footer**: pricing.html was updated in US-009 and already had the categorized footer structure - used as template for other pages.
+- **Copyright year**: Several pages still had 2025 copyright, standardized to 2026.
+- **Column efficiency**: Combining Productivity and Smart Home & Music in one column saves space since both have fewer items than Media & Entertainment.
+
+---
+
+## 2026-01-25 - US-013 Design system audit and color consistency
+
+### What was implemented
+- Added comprehensive color scheme reference documentation to `src/data/products.js` header
+- Fixed color inconsistencies in three product pages where feature cards used mixed border colors:
+  - **Remote Control**: Changed WiFi Discovery and Smart Camera Pairing cards from `border-purple-200`/`border-pink-200` to `border-indigo-200` (matching Remote's indigo-purple scheme)
+  - **Task Manager**: Changed Priority Tracking and Privacy First cards from `border-pink-200`/`border-purple-200` to `border-rose-200` (matching Task Manager's rose-pink scheme)
+  - **Guitar Tuner**: Changed Visual Feedback and 6-String Tracking cards from `border-orange-200`/`border-red-200` to `border-amber-200` (matching Guitar Tuner's amber-orange scheme)
+- Also updated corresponding icon backgrounds and checkmark colors to match the consistent scheme
+
+### Files changed
+- `src/data/products.js` (added color scheme reference table in header comments)
+- `src/pages/remote-control.html` (2 feature cards updated)
+- `src/pages/task-manager.html` (2 feature cards updated)
+- `src/pages/guitar-tuner.html` (2 feature cards updated)
+- `scripts/ralph/prd.json` (updated passes: true for US-013)
+
+### Learnings for future iterations
+- **Color scheme pattern**: Each product should use ONE primary border color for all feature cards, not different colors for each card. The hero gradient can use two colors, but cards should be uniform.
+- **Design system audit scope**: This story focused on border colors, icon backgrounds, and accent text colors. Hero gradients and CTA sections were already consistent across pages.
+- **products.js as source of truth**: The colorScheme object in each product entry defines the canonical colors. Added a reference table to make this easy to look up.
+- **Color naming in Tailwind**: `rose` is distinct from `pink` - Task Manager uses rose-200/rose-600, not pink. Similarly, `amber` is distinct from `orange` - Guitar Tuner uses amber-200/amber-600.
+
+---
+
+## 2026-01-25 - US-014 Mobile navigation hamburger menu update
+
+### What was implemented
+- **Already completed as part of US-007**. This story's requirements were fully satisfied when the navigation dropdown was implemented.
+
+### Verification
+All acceptance criteria were met by US-007:
+- ✓ Mobile navigation menu present on all 16 HTML pages
+- ✓ Products organized by category (Media & Entertainment, Productivity, Smart Home & Music)
+- ✓ Expandable/collapsible category sections with JavaScript toggle
+- ✓ Touch-friendly tap targets (`px-3 py-2` provides ~44px height)
+- ✓ Smooth open/close animation via `transition-transform` on chevron icon
+
+### Learnings for future iterations
+- **Combined stories**: When implementing a feature, check if other stories have overlapping requirements. US-007 (navigation dropdown) naturally included US-014 (mobile hamburger menu) since both required updating navigation across all pages.
+- **Mark dependencies**: In future PRDs, consider linking stories that will naturally be implemented together to avoid duplicate work tracking.
+
+---
+

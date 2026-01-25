@@ -7,6 +7,30 @@
  * - Productivity: Scanner, Tasks, Transcript
  * - Music: Guitar Tuner
  * - Smart Home: Universal Remote
+ *
+ * COLOR SCHEME REFERENCE (for design consistency):
+ * ─────────────────────────────────────────────────
+ * Product          | Hero Gradient               | Border Color    | Accent
+ * ─────────────────────────────────────────────────
+ * Player           | purple-50 → blue-50         | purple-200      | purple-600
+ * VR Player        | red-50 → orange-50          | red-200         | red-600
+ * Audio Hub        | indigo-50 → blue-50         | indigo-200      | indigo-600
+ * Local Listen     | violet-50 → purple-50       | violet-200      | violet-600
+ * Offline Audio    | blue-50 → sky-50            | sky-200         | sky-600
+ * Transcript       | green-50 → teal-50          | green-200       | secondary-600
+ * Scanner          | blue-50 → cyan-50           | blue-200        | blue-600
+ * Task Manager     | rose-50 → pink-50           | rose-200        | rose-600
+ * Guitar Tuner     | amber-50 → orange-50        | amber-200       | amber-600
+ * Remote Control   | indigo-50 → purple-50       | indigo-200      | indigo-600
+ * ─────────────────────────────────────────────────
+ *
+ * USAGE PATTERN:
+ * - Hero section: bg-gradient-to-br from-{color1}-50 to-{color2}-50
+ * - Feature cards: border-2 border-{color}-200 dark:border-{color}-900
+ * - Icons/accents: bg-{color}-100, text-{color}-600
+ * - CTA section: bg-gradient-to-r from-{color1}-600 to-{color2}-600
+ * - Primary actions: bg-{color}-600 hover:bg-{color}-700
+ * - Secondary actions: gray (neutral)
  */
 
 const TIDOX_PRODUCTS = {
