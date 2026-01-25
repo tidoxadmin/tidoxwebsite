@@ -1,0 +1,288 @@
+{
+  "project": "TidoxWebsite",
+  "branchName": "ralph/complete-product-portfolio",
+  "description": "Complete product portfolio update - Add all 9 Tidox products to website with consistent design system",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Create product data structure file",
+      "description": "As a developer, I need a centralized product data file to maintain consistency across all pages.",
+      "acceptanceCriteria": [
+        "Create src/data/products.js with all 9 Tidox products",
+        "Each product has: id, name, tagline, description, features[], playStoreId, playStorePremiumId (if applicable), price, premiumPrice, colorScheme, icon",
+        "Products grouped by category: Media (Player, VR Player 360, Audio Hub, Local Listen, Offline Audio), Productivity (Scanner, Tasks, Transcript), Smart Home (Remote Control)",
+        "Include accurate Play Store IDs from existing pages",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Completed 2026-01-25. Created products.js with 10 products (added Guitar Tuner to original 9). Includes all metadata, color schemes, and helper functions."
+    },
+    {
+      "id": "US-002",
+      "title": "Create Scanner product landing page",
+      "description": "As a user, I want to learn about Tidox Scanner so I can decide if it meets my document scanning needs.",
+      "acceptanceCriteria": [
+        "Create src/pages/scanner.html following existing page template structure",
+        "Hero section with Scanner-specific gradient (blue-cyan scheme)",
+        "Feature cards: Offline OCR, PDF export, batch scanning, secure storage",
+        "Free vs Pro comparison section",
+        "Play Store links: online.tidox.scanner (free), pro version link",
+        "Consistent navigation header and footer matching other pages",
+        "Mobile responsive design",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 2,
+      "passes": true,
+      "notes": "Completed 2026-01-25. Created scanner.html with blue-cyan gradient, 6 feature cards, Free vs Pro pricing section, consistent nav/footer."
+    },
+    {
+      "id": "US-003",
+      "title": "Create Remote Control product landing page",
+      "description": "As a user, I want to learn about Tidox Remote so I can control my TV with AI-powered features.",
+      "acceptanceCriteria": [
+        "Create src/pages/remote.html following existing page template structure",
+        "Hero section with Remote-specific gradient (purple-magenta scheme)",
+        "Feature cards: AI-Powered TV Control, Samsung/LG/Android TV support, IR Blaster support, Instant Camera Pairing",
+        "Free vs Pro comparison section",
+        "Play Store links for free and pro versions",
+        "Consistent navigation and footer",
+        "Mobile responsive design",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 3,
+      "passes": true,
+      "notes": "Page already exists at remote-control.html with full implementation: indigo-purple gradient, IR Blaster/WiFi Discovery/Smart Camera Pairing features, Free vs Premium pricing, Play Store links, consistent nav/footer."
+    },
+    {
+      "id": "US-004",
+      "title": "Create VR Player 360 product landing page",
+      "description": "As a user, I want to learn about VR Tidox Player 360 for immersive video experiences.",
+      "acceptanceCriteria": [
+        "Create src/pages/vr-player.html following existing page template structure",
+        "Hero section with VR-specific gradient (red-orange scheme matching TX logo)",
+        "Feature cards: 360-degree video support, VR headset compatibility, spatial audio, gesture controls",
+        "Positioning as companion to main Tidox Player",
+        "Play Store link for VR Tidox Player 360",
+        "Consistent navigation and footer",
+        "Mobile responsive design",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Create Audio Hub product landing page",
+      "description": "As a user, I want to learn about Tidox Pro Audio Hub for premium audio management.",
+      "acceptanceCriteria": [
+        "Create src/pages/audio-hub.html following existing page template structure",
+        "Hero section with Audio Hub gradient (deep blue scheme)",
+        "Feature cards: Premium audio organization, intelligent categorization, Your Audio Intelligently Organized tagline",
+        "Premium positioning (paid app at 2.49 EUR)",
+        "Play Store link for Tidox Pro: Premium Audio Hub",
+        "Consistent navigation and footer",
+        "Mobile responsive design",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Create Offline Audio Player product landing page",
+      "description": "As a user, I want to learn about Tidox Offline Audio Player for local music playback.",
+      "acceptanceCriteria": [
+        "Create src/pages/offline-audio.html following existing page template structure",
+        "Hero section with Offline Audio gradient (blue waveform theme)",
+        "Feature cards: Offline playback, audio organization, privacy-first, no internet required",
+        "Differentiate from Local Listen (simpler, offline-focused)",
+        "Play Store link for Tidox: Offline Audio Player",
+        "Consistent navigation and footer",
+        "Mobile responsive design",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Update navigation with all products dropdown",
+      "description": "As a user, I want easy navigation to all products through a dropdown menu.",
+      "acceptanceCriteria": [
+        "Update navigation in ALL HTML pages (index.html and all src/pages/*.html)",
+        "Replace individual product links with Products dropdown",
+        "Dropdown categories: Media & Entertainment, Productivity, Smart Home",
+        "Each category lists relevant products",
+        "Dropdown works on desktop (hover) and mobile (tap)",
+        "Keep Pricing and About as top-level links",
+        "Consistent styling with existing nav",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Update homepage product grid to show all 9 products",
+      "description": "As a user visiting the homepage, I want to see the complete product ecosystem at a glance.",
+      "acceptanceCriteria": [
+        "Update index.html products section from 4 cards to 9 cards",
+        "Group products visually by category with section headers",
+        "Each card uses consistent styling from existing cards",
+        "Product-specific color schemes maintained",
+        "Links point to respective product landing pages",
+        "Grid responsive: 1 col mobile, 2 cols tablet, 3 cols desktop",
+        "Update stats bar: change '4 Innovative Apps' to '9 Innovative Apps'",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Update pricing page with all products",
+      "description": "As a user, I want to compare free vs premium features across all Tidox products.",
+      "acceptanceCriteria": [
+        "Update src/pages/pricing.html to include all 9 products",
+        "Organize by category: Media, Productivity, Smart Home",
+        "Show Free tier features and Premium tier features for each",
+        "Display actual prices from Play Store (EUR)",
+        "Play Store links for each product variant",
+        "Responsive grid layout",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 9,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-010",
+      "title": "Consolidate Transcript naming (VoxaNotes alignment)",
+      "description": "As a user, I want consistent branding between website and Play Store listings.",
+      "acceptanceCriteria": [
+        "Update transcript.html to reference VoxaNotes as the Play Store name",
+        "Add note: 'Available on Play Store as VoxaNotes'",
+        "Update Play Store links to use VoxaNotes app IDs",
+        "Keep Offline Transcript as primary website name (established branding)",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 10,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-011",
+      "title": "Update structured data (JSON-LD) with all products",
+      "description": "As a search engine, I need accurate structured data for all 9 products.",
+      "acceptanceCriteria": [
+        "Update index.html ItemList schema to include all 9 products",
+        "Each product has correct SoftwareApplication schema",
+        "Accurate applicationCategory for each product type",
+        "Correct offers with prices (0 for free, actual price for premium)",
+        "Add individual product schema to each product landing page",
+        "Typecheck passes"
+      ],
+      "priority": 11,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-012",
+      "title": "Update footer with complete product list",
+      "description": "As a user, I want the footer to provide quick access to all products.",
+      "acceptanceCriteria": [
+        "Update footer in ALL HTML pages",
+        "Products section grouped by category",
+        "All 9 products listed with links to landing pages",
+        "Consistent footer across all pages",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 12,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-013",
+      "title": "Design system audit and color consistency",
+      "description": "As a brand owner, I want consistent color usage across all product pages.",
+      "acceptanceCriteria": [
+        "Document color scheme for each product in products.js",
+        "Player: purple-blue, Transcript: green-teal, Local Listen: violet-purple, Task Manager: orange-pink",
+        "Scanner: blue-cyan, Remote: purple-magenta, VR Player: red-orange, Audio Hub: deep blue, Offline Audio: blue-waveform",
+        "Apply consistent color scheme to hero, cards, buttons on each page",
+        "Primary actions use product color, secondary actions use gray",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 13,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-014",
+      "title": "Mobile navigation hamburger menu update",
+      "description": "As a mobile user, I want to access all products from the hamburger menu.",
+      "acceptanceCriteria": [
+        "Add mobile navigation menu to all pages if not present",
+        "Mobile menu shows all products organized by category",
+        "Expandable/collapsible category sections",
+        "Touch-friendly tap targets (min 44px)",
+        "Smooth open/close animation",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 14,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-015",
+      "title": "Update sitemap.xml with new pages",
+      "description": "As a search engine, I need an updated sitemap reflecting all product pages.",
+      "acceptanceCriteria": [
+        "Update sitemap.xml in root directory",
+        "Add entries for: scanner.html, remote.html, vr-player.html, audio-hub.html, offline-audio.html",
+        "Correct lastmod dates",
+        "Priority values: homepage 1.0, product pages 0.8, other pages 0.5",
+        "Typecheck passes"
+      ],
+      "priority": 15,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-016",
+      "title": "Final cross-page consistency check",
+      "description": "As a QA reviewer, I need to verify all pages follow the same patterns.",
+      "acceptanceCriteria": [
+        "All pages have identical navigation structure",
+        "All pages have identical footer structure",
+        "All product pages follow same section order: Hero, Features, Pricing, CTA",
+        "Meta tags present and accurate on all pages",
+        "No broken internal links",
+        "Mobile responsive on all pages",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 16,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

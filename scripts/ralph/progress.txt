@@ -1,0 +1,87 @@
+# Ralph Progress Log
+# Branch: ralph/complete-product-portfolio
+# Started: Not yet started
+
+## Codebase Patterns
+
+- **Navigation:** Copy nav section exactly from index.html - includes desktop menu and mobile responsive
+- **Footer:** Copy footer section exactly from index.html - 4 columns (Branding, Products, Company, Connect)
+- **CSS:** Use Tailwind classes from /src/assets/css/output.css - do NOT add new CSS
+- **Links:** Product pages at /src/pages/*.html, link from root uses /src/pages/filename.html
+- **Icons:** Use inline SVG icons (no external icon library)
+- **Dark mode:** All elements need dark: variants for dark mode support
+- **Cards:** Use group hover effects: group-hover:scale-110, transform hover:-translate-y-2
+
+---
+
+## 2026-01-25 14:30 - US-001 Create product data structure file
+
+### What was implemented
+- Created `/src/data/products.js` with centralized product data for all Tidox products
+- Included 10 products (original 9 plus Guitar Tuner which was already on the site)
+- Each product has: id, name, tagline, description, category, features[], playStoreId, playStorePremiumId, price, premiumPrice, colorScheme, icon, page URL, applicationCategory
+- Helper functions: getAllProducts(), getProductsByCategory(), getProduct(), getPlayStoreUrl(), etc.
+
+### Files changed
+- `src/data/products.js` (NEW - 426 lines)
+
+### Learnings for future iterations
+- **Guitar Tuner exists**: The site already has 6 products visible in navigation (Player, Remote, Tuner, Transcript, Local Listen, Task Manager). The PRD originally counted 9, but Guitar Tuner brings it to 10.
+- **Play Store IDs differ by app**: Most use `online.tidox.*` but Guitar Tuner uses `com.tidox.*` prefix
+- **Transcript/VoxaNotes**: The transcript product is called "VoxaNotes" on Play Store but "Offline Transcript" on website
+- **Color schemes from existing pages**: Player (purple-blue), Transcript (green-teal), Local Listen (violet), Task Manager (rose-pink), Remote (indigo-purple), Guitar Tuner (amber-orange)
+- **Category groupings**: Media & Entertainment has the most products (5), followed by Productivity (3), then Music (1) and Smart Home (1)
+
+---
+
+## 2026-01-25 18:45 - US-002 Create Scanner product landing page
+
+### What was implemented
+- Created `/src/pages/scanner.html` following the transcript.html template structure
+- Hero section with blue-cyan gradient (`from-blue-50 to-cyan-50`)
+- 6 feature cards: Offline OCR, PDF Export, Batch Scanning, Auto Edge Detection, Secure Storage, Multiple Formats
+- Free vs Pro pricing comparison section (Free $0, Pro $3.99 one-time)
+- Play Store links: `online.tidox.scanner` (free), `online.tidox.scanner.pro` (pro)
+- Consistent navigation and footer copied from existing pages
+- Full dark mode support with `dark:` variants
+- Mobile responsive design with Tailwind breakpoints
+
+### Files changed
+- `src/pages/scanner.html` (NEW - 242 lines)
+
+### Learnings for future iterations
+- **Page template pattern**: Hero → Features (3-col grid) → Pricing (2-col) → CTA → Footer
+- **Feature cards**: Use `border-2 border-{color}-200 dark:border-{color}-900` for product-specific borders
+- **Hover effects**: Apply `transition-all hover:-translate-y-2` to cards for subtle interactivity
+- **Icon approach**: Use inline SVGs with `stroke="currentColor"` for color inheritance
+- **Pricing cards**: Free plan uses gray background, Pro plan uses gradient with product colors
+- **CTA section**: Full-width gradient matching product colors with white button
+
+---
+
+## 2026-01-25 19:15 - US-003 Create Remote Control product landing page
+
+### What was implemented
+- Verified existing `/src/pages/remote-control.html` already meets all acceptance criteria
+- Page already has comprehensive implementation with:
+  - Indigo-purple gradient hero (`from-indigo-50 to-purple-50`)
+  - Feature cards: IR Blaster Control, WiFi TV Discovery, Smart Camera Pairing
+  - Additional features section: Haptic Feedback, Long Press Repeat, Privacy-First
+  - Free vs Premium pricing comparison with BEST VALUE badge
+  - Play Store links: `online.tidox.remote` (free), `online.tidox.remote.premium` (premium)
+  - Consistent navigation and footer
+  - Full dark mode support
+  - Mobile responsive design
+
+### Files changed
+- `scripts/ralph/prd.json` (updated passes: true for US-003)
+
+### Learnings for future iterations
+- **Check for existing implementations**: Before creating new pages, verify if a page already exists (remote-control.html vs remote.html)
+- **PRD naming vs actual files**: The PRD called for `remote.html` but the actual file is `remote-control.html` - always check the navigation links to find the correct filename
+- **Remote page pattern**: Uses gradient badges (BEST VALUE), Google Play badge images instead of custom buttons, and has a two-column features section (Additional Features)
+- **Live chat integration**: Remote page includes Chaport live chat script - other pages may or may not have this
+- **AdSense integration**: Remote page has AdSense script in head - check if this should be consistent across all product pages
+
+---
+
