@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Tidox QR Scanner - Play Store Icon (512x512) -->
+
+  <!-- Rounded square background -->
+  <rect width="512" height="512" rx="90" ry="90" fill="#0047AB"/>
+
+  <!-- Scale: 512/108 = 4.74 -->
+  <g transform="translate(0, 0) scale(4.7407)">
+    <!-- QR finder patterns -->
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="16" height="16" rx="2.5" ry="2.5"
+            fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <rect x="4.5" y="4.5" width="7" height="7" rx="1.5" ry="1.5" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(64, 28)">
+      <rect x="0" y="0" width="16" height="16" rx="2.5" ry="2.5"
+            fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <rect x="4.5" y="4.5" width="7" height="7" rx="1.5" ry="1.5" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(28, 64)">
+      <rect x="0" y="0" width="16" height="16" rx="2.5" ry="2.5"
+            fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <rect x="4.5" y="4.5" width="7" height="7" rx="1.5" ry="1.5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Data modules -->
+    <rect x="48" y="30" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="53" y="30" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="48" y="35" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="58" y="35" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="53" y="40" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="48" y="40" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="30" y="48" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="35" y="48" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="48" y="48" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="58" y="48" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="68" y="48" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="73" y="48" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="30" y="53" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="40" y="53" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="48" y="53" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="53" y="53" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="63" y="53" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="73" y="53" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="35" y="58" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="40" y="58" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="53" y="58" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="63" y="58" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="68" y="58" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="48" y="64" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="58" y="64" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="68" y="64" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="53" y="69" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="63" y="69" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="73" y="69" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="48" y="74" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="58" y="74" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="63" y="74" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+    <rect x="73" y="74" width="3" height="3" rx="0.5" fill="#FFFFFF"/>
+
+    <!-- Viewfinder corners -->
+    <path d="M24,30 L24,24 L30,24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M78,24 L84,24 L84,30" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M24,78 L24,84 L30,84" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M78,84 L84,84 L84,78" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Scan line -->
+    <line x1="26" y1="54" x2="82" y2="54" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  </g>
+</svg>

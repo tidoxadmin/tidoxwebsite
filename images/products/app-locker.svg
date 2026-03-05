@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tidox Locker - Free Version Icon -->
+<!-- Privacy-focused app locker -->
+<!-- Created for Play Store (512x512) and app launcher icons -->
+<!-- Edit with Inkscape: inkscape playstore/icons/sources/icon-free.svg -->
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1">
+
+  <sodipodi:namedview
+     inkscape:document-units="px"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+
+  <defs>
+    <!-- Subtle gradient for depth -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A99D"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background (Teal - Privacy/Security theme) -->
+  <rect
+     width="512"
+     height="512"
+     x="0"
+     y="0"
+     fill="#00897B"
+     rx="0"
+     ry="0"/>
+
+  <!-- Padlock Icon (centered) -->
+  <g transform="translate(256,270)" fill="#FFFFFF">
+    <!-- Lock body (rounded rectangle) -->
+    <rect x="-85" y="-40" width="170" height="130" rx="16" fill="#FFFFFF"/>
+
+    <!-- Lock shackle (the curved top part) -->
+    <path d="M-50,-40 L-50,-80 Q-50,-130 0,-130 Q50,-130 50,-80 L50,-40"
+          fill="none" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round"/>
+
+    <!-- Keyhole -->
+    <circle cx="0" cy="15" r="22" fill="#00897B"/>
+    <rect x="-10" y="15" width="20" height="40" rx="5" fill="#00897B"/>
+  </g>
+
+</svg>

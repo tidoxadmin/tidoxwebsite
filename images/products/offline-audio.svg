@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <clipPath id="squircle">
+      <rect x="0" y="0" width="512" height="512" rx="108" ry="108"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#squircle)">
+    <rect width="512" height="512" fill="#1A1A2E"/>
+    <g transform="scale(4.7407)">
+      <!-- Music note - Offline Audio Player -->
+      <path d="M62,26 L62,26 Q62,18 70,18 L78,18 Q86,18 86,26 L86,52 Q86,60 78,60 L70,60 Q62,60 62,52 L62,26 Z" fill="#FFFFFF"/>
+      <path d="M62,60 L62,88 M86,52 L86,76" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="62" cy="88" r="6" fill="#FFFFFF"/>
+      <circle cx="86" cy="76" r="6" fill="#FFFFFF"/>
+    </g>
+  </g>
+</svg>

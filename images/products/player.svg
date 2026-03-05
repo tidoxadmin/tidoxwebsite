@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <clipPath id="squircle">
+      <rect x="0" y="0" width="512" height="512" rx="108" ry="108"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#squircle)">
+    <rect width="512" height="512" fill="#008577"/>
+    <g transform="scale(4.7407)">
+      <!-- Play triangle icon (centered in 108 viewport) -->
+      <path d="M39,28 L39,80 L80,54 Z" fill="#FFFFFF"/>
+    </g>
+  </g>
+</svg>

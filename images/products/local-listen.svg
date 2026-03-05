@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Tidox Launcher Icon - Master SVG Source
+    Task: tidox-local-listen-axd, tidox-local-listen-s8r
+
+    Canvas: 512x512 (Play Store size, scales down for device icons)
+    Design: Tidox Wave on Brand Blue background
+
+    Export targets:
+    - Play Store: 512x512 PNG
+    - Adaptive foreground: 432x432 (xxxhdpi)
+    - Legacy icons: Various sizes
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512">
+
+  <!-- Background: Brand Blue -->
+  <rect width="512" height="512" fill="#0047AB"/>
+
+  <!-- Tidox Wave: Centered, scaled to ~280px (55% of canvas for safe zone) -->
+  <g transform="translate(116, 116) scale(11.67)">
+    <!-- Left bar: Medium height -->
+    <path d="M6,8 C4.9,8 4,8.9 4,10 L4,14 C4,15.1 4.9,16 6,16 C7.1,16 8,15.1 8,14 L8,10 C8,8.9 7.1,8 6,8 Z"
+          fill="#FFFFFF"/>
+
+    <!-- Center bar: Tall peak (signature element) -->
+    <path d="M12,4 C10.9,4 10,4.9 10,6 L10,18 C10,19.1 10.9,20 12,20 C13.1,20 14,19.1 14,18 L14,6 C14,4.9 13.1,4 12,4 Z"
+          fill="#FFFFFF"/>
+
+    <!-- Right bar: Medium height -->
+    <path d="M18,8 C16.9,8 16,8.9 16,10 L16,14 C16,15.1 16.9,16 18,16 C19.1,16 20,15.1 20,14 L20,10 C20,8.9 19.1,8 18,8 Z"
+          fill="#FFFFFF"/>
+  </g>
+</svg>
