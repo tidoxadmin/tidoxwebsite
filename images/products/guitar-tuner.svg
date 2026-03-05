@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 108 108">
+  <!-- TIDOX Guitar Tuner - Refined Icon Preview -->
+  
   <defs>
-    <clipPath id="squircle">
-      <rect x="0" y="0" width="512" height="512" rx="108" ry="108"/>
-    </clipPath>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB300"/>
+      <stop offset="35%" style="stop-color:#FF8F00"/>
+      <stop offset="100%" style="stop-color:#E65100"/>
+    </linearGradient>
   </defs>
-  <g clip-path="url(#squircle)">
-    <!-- Background: gradient layers -->
-    <rect width="512" height="512" fill="#E65100"/>
-    <path d="M0,0 L512,0 L512,189.6 C379.3,260.7 132.7,260.7 0,189.6 Z" fill="#FF8F00" fill-opacity="0.7"/>
-    <path d="M0,0 L512,0 L512,118.5 C355.6,180 156.4,180 0,118.5 Z" fill="#FFB300" fill-opacity="0.5"/>
-    <path d="M0,0 L237,0 L0,237 Z" fill="#FFCA28" fill-opacity="0.3"/>
-    <path d="M0,512 L512,512 L512,378.7 C379.3,322 132.7,322 0,378.7 Z" fill="#BF360C" fill-opacity="0.4"/>
-    <!-- Foreground -->
-    <g transform="scale(4.7407)">
-      <!-- Outer glow ring -->
-      <path d="M54,54m-32,0a32,32 0,1 1,64 0a32,32 0,1 1,-64 0" fill="#FFFFFF" fill-opacity="0.12"/>
-      <!-- Sound wave arcs -->
-      <path d="M32,50 Q28,46 32,42" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-opacity="0.6" stroke-linecap="round"/>
-      <path d="M27,54 Q21,46 27,38" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
-      <path d="M76,50 Q80,46 76,42" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-opacity="0.6" stroke-linecap="round"/>
-      <path d="M81,54 Q87,46 81,38" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
-      <!-- Tuning fork left prong -->
-      <path d="M46,52 L46,27 A3,3 0 0 1 49,24 A3,3 0 0 1 52,27 L52,52 Z" fill="#FFFFFF"/>
-      <!-- Tuning fork right prong -->
-      <path d="M56,52 L56,27 A3,3 0 0 1 59,24 A3,3 0 0 1 62,27 L62,52 Z" fill="#FFFFFF"/>
-      <!-- Handle -->
-      <path d="M50,52 L58,52 L58,55 L56,55 L56,78 L52,78 L52,55 L50,55 Z" fill="#FFFFFF"/>
-      <!-- Ball at base -->
-      <path d="M54,78m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" fill="#FFFFFF"/>
-      <!-- Inner shadows -->
-      <path d="M50,30 L50,52 L52,52 L52,30 Z" fill="#000000" fill-opacity="0.06"/>
-      <path d="M58,30 L58,52 L60,52 L60,30 Z" fill="#000000" fill-opacity="0.06"/>
-      <!-- Highlight on ball -->
-      <path d="M52,76m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0" fill="#FFFFFF" fill-opacity="0.3"/>
-    </g>
-  </g>
+  
+  <!-- Background -->
+  <rect x="0" y="0" width="108" height="108" fill="url(#bgGradient)"/>
+  
+  <!-- Outer glow ring -->
+  <circle cx="54" cy="54" r="32" fill="white" fill-opacity="0.12"/>
+  
+  <!-- Sound wave arcs - left -->
+  <path d="M32,50 Q28,46 32,42" stroke="white" stroke-width="2.5" stroke-opacity="0.6" fill="none" stroke-linecap="round"/>
+  <path d="M27,54 Q21,46 27,38" stroke="white" stroke-width="2" stroke-opacity="0.35" fill="none" stroke-linecap="round"/>
+  
+  <!-- Sound wave arcs - right -->
+  <path d="M76,50 Q80,46 76,42" stroke="white" stroke-width="2.5" stroke-opacity="0.6" fill="none" stroke-linecap="round"/>
+  <path d="M81,54 Q87,46 81,38" stroke="white" stroke-width="2" stroke-opacity="0.35" fill="none" stroke-linecap="round"/>
+  
+  <!-- Tuning Fork - Left prong with rounded top -->
+  <path d="M46,52 L46,27 A3,3 0 0 1 49,24 A3,3 0 0 1 52,27 L52,52 Z" fill="white"/>
+  
+  <!-- Tuning Fork - Right prong with rounded top -->
+  <path d="M56,52 L56,27 A3,3 0 0 1 59,24 A3,3 0 0 1 62,27 L62,52 Z" fill="white"/>
+  
+  <!-- Handle/stem -->
+  <path d="M50,52 L58,52 L58,55 L56,55 L56,78 L52,78 L52,55 L50,55 Z" fill="white"/>
+  
+  <!-- Ball at base -->
+  <circle cx="54" cy="78" r="5" fill="white"/>
+  
+  <!-- Subtle shadows -->
+  <path d="M50,30 L50,52 L52,52 L52,30 Z" fill="black" fill-opacity="0.06"/>
+  <path d="M58,30 L58,52 L60,52 L60,30 Z" fill="black" fill-opacity="0.06"/>
+  
+  <!-- Highlight on ball -->
+  <circle cx="52" cy="76" r="1.5" fill="white" fill-opacity="0.4"/>
 </svg>
