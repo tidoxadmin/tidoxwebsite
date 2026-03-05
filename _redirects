@@ -1,0 +1,34 @@
+# Old static HTML paths → New Astro clean URLs (301 permanent)
+
+# Product pages — /src/pages/ prefix
+/src/pages/player.html         /player/         301
+/src/pages/vr-player.html      /vr-player/      301
+/src/pages/audio-hub.html      /audio-hub/      301
+/src/pages/local-listen.html   /local-listen/   301
+/src/pages/offline-audio.html  /offline-audio/  301
+/src/pages/transcript.html     /transcript/     301
+/src/pages/scanner.html        /scanner/        301
+/src/pages/task-manager.html   /task-manager/   301
+/src/pages/remote-control.html /remote-control/ 301
+/src/pages/guitar-tuner.html   /guitar-tuner/   301
+
+# Supporting pages — /src/pages/ prefix
+/src/pages/pricing.html        /pricing/        301
+/src/pages/about.html          /about/          301
+/src/pages/contact.html        /contact/        301
+/src/pages/privacy.html        /privacy/        301
+/src/pages/terms.html          /terms/          301
+
+# Root-level legacy pages
+/privacy_policy.html           /privacy/        301
+/player.html                   /player/         301
+/transcript.html               /transcript/     301
+/task-manager.html             /task-manager/   301
+/pricing.html                  /pricing/        301
+/about.html                    /about/          301
+/contact.html                  /contact/        301
+/terms.html                    /terms/          301
+/privacy.html                  /privacy/        301
+
+# Legacy index redirect
+/src/pages/index.html          /                301
