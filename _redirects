@@ -4,7 +4,8 @@
 /src/pages/player.html         /player/         301
 /src/pages/vr-player.html      /vr-player/      301
 /src/pages/audio-hub.html      /audio-hub/      301
-/src/pages/local-listen.html   /local-listen/   301
+/src/pages/local-listen.html   /offline-audio/  301
+/local-listen/                 /offline-audio/  301
 /src/pages/offline-audio.html  /offline-audio/  301
 /src/pages/transcript.html     /transcript/     301
 /src/pages/scanner.html        /scanner/        301
