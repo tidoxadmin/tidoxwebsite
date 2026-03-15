@@ -11,6 +11,14 @@
 /src/pages/task-manager.html   /task-manager/   301
 /src/pages/remote-control.html /remote-control/ 301
 /src/pages/guitar-tuner.html   /guitar-tuner/   301
+/src/pages/qr-scanner.html     /qr-scanner/     301
+/src/pages/voice-memo.html     /voice-memo/     301
+/src/pages/clipboard.html      /clipboard/      301
+/src/pages/app-locker.html     /app-locker/     301
+/src/pages/flashcards.html     /flashcards/     301
+/src/pages/kora.html           /kora/           301
+/src/pages/lucid.html          /lucid/          301
+/src/pages/recording.html      /recording/      301
 
 # Supporting pages — /src/pages/ prefix
 /src/pages/pricing.html        /pricing/        301

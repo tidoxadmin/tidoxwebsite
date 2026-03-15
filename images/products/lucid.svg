@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="108" fill="#1a1f3d"/>
+  <circle cx="256" cy="230" r="120" stroke="#4facfe" stroke-width="16" fill="none"/>
+  <circle cx="256" cy="230" r="60" fill="#4facfe" opacity="0.9"/>
+  <circle cx="256" cy="230" r="24" fill="#1a1f3d"/>
+  <path d="M160 390h192" stroke="#4facfe" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+  <path d="M190 420h132" stroke="#4facfe" stroke-width="12" stroke-linecap="round" opacity="0.3"/>
+  <text x="256" y="470" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="42" fill="#4facfe" opacity="0.7">AI &amp; Scam Detector</text>
+</svg>
