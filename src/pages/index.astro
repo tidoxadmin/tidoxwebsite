@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { HeroActions, ProductGrid, StatsBar } from '../components/HomeSections';
+import { products } from '../data/products';
+---
+
+<BaseLayout
+  title="Tidox - Privacy-First Mobile Apps for Modern Life"
+  description="Discover Tidox's innovative Android apps: IPTV Player, Universal Remote, Guitar Tuner, AI Transcription, Screen Recorder, Scam Detector, Mesh Messaging, and more."
+  canonical="https://tidox.online/"
+>
+  <main class="pt-16">
+    <section class="relative overflow-hidden min-h-[85vh] flex items-center aurora-bg">
+      <div class="relative z-10 mx-auto max-w-5xl w-full px-4 sm:px-6 lg:px-8 py-24 text-center">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold font-[family-name:var(--font-display)] tracking-tight">
+          Your phone.<br /><span class="text-gradient">Your rules.</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mt-6 leading-relaxed">
+          {products.length} powerful Android apps designed for users who value privacy, performance, and modern technology.
+        </p>
+        <div class="mt-10">
+          <HeroActions client:load />
+        </div>
+        <div class="mt-16 max-w-3xl mx-auto">
+          <StatsBar client:load />
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="py-(--spacing-section-sm) px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight">
+            Every app.<br /><span class="text-gradient">Privacy built in.</span>
+          </h2>
+          <p class="text-lg text-text-secondary max-w-2xl mx-auto mt-4">
+            From IPTV streaming to on-device AI — all free at the core, no accounts required.
+          </p>
+        </div>
+        <ProductGrid client:load />
+      </div>
+    </section>
+
+    <section class="relative py-(--spacing-section-sm) overflow-hidden aurora-bg">
+      <div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight mb-6">
+          Pick your first app.<br /><span class="text-gradient">It's free.</span>
+        </h2>
+        <p class="text-lg text-text-secondary max-w-2xl mx-auto mb-10">
+          Every core feature is free. No accounts, no trials, no strings attached.
+        </p>
+        <a
+          href="/player/"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-[var(--radius-button)] bg-gradient-to-r from-accent-violet to-accent-cyan text-white font-semibold text-lg transition-all hover:scale-105 glow-accent no-underline"
+        >
+          Start with Tidox Player
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

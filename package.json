@@ -1,0 +1,31 @@
+{
+  "name": "tidoxwebsite",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "predev": "bash scripts/link-legacy-pages.sh",
+    "dev": "astro dev",
+    "prebuild": "bash scripts/link-legacy-pages.sh && bash scripts/verify-brand-assets.sh",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astryx": "node node_modules/@astryxdesign/cli/bin/astryx.mjs",
+    "theme:build": "npm run astryx -- theme build theme/tidox-theme.ts -o src/styles/tidox-theme.css"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.1",
+    "@astrojs/sitemap": "^3.3.1",
+    "@astryxdesign/core": "0.1.2",
+    "@astryxdesign/theme-neutral": "0.1.2",
+    "astro": "^5.7.10",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@astryxdesign/cli": "0.1.2",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.8.3"
+  }
+}
