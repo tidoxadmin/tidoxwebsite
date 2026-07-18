@@ -1,7 +1,17 @@
 ---
+/* Hallmark · genre: atmospheric · macrostructure: Bento Grid · theme: custom dark (brand-red locked)
+ * F1 Bento knobs: tiles=8, spans=irregular, accent=corner-only · nav: N5 · footer: Ft5
+ * tone: technical/confident · anchor hue: brand-red #F44336 · pre-emit critique: P5 H4 E5 S4 R5 V5 */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { HeroActions, ProductGrid, StatsBar } from '../components/HomeSections';
-import { products } from '../data/products';
+import {
+  PRODUCT_CATEGORIES,
+  products,
+  productsByCategory,
+} from '../data/products';
+
+const bySlug = (slug: string) => products.find((p) => p.slug === slug)!;
+const featured = ['player', 'lucid', 'local', 'kora', 'remote-control', 'transcript'].map(bySlug);
+const [hero, ...rest] = featured;
 ---
 
 <BaseLayout
@@ -10,48 +20,130 @@ import { products } from '../data/products';
   canonical="https://tidox.online/"
 >
   <main class="pt-16">
-    <section class="relative overflow-hidden min-h-[85vh] flex items-center aurora-bg">
-      <div class="relative z-10 mx-auto max-w-5xl w-full px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold font-[family-name:var(--font-display)] tracking-tight">
+    <!-- Hero -->
+    <section class="relative overflow-hidden bloom-bg">
+      <div class="relative z-10 mx-auto max-w-5xl w-full px-4 sm:px-6 lg:px-8 pt-24 pb-20 sm:pt-28 sm:pb-24 text-center rise">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold font-[family-name:var(--font-display)] tracking-tight leading-[0.95]">
           Your phone.<br /><span class="text-gradient">Your rules.</span>
         </h1>
         <p class="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mt-6 leading-relaxed">
-          {products.length} powerful Android apps designed for users who value privacy, performance, and modern technology.
+          {products.length} privacy-first Android apps — streaming, on-device AI, tools. No accounts, no tracking, free at the core.
         </p>
-        <div class="mt-10">
-          <HeroActions client:load />
-        </div>
-        <div class="mt-16 max-w-3xl mx-auto">
-          <StatsBar client:load />
+        <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="/player/"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] bg-accent-violet text-white font-semibold whitespace-nowrap transition-transform hover:scale-[1.02] glow-accent no-underline"
+          >
+            Start with Tidox Player
+          </a>
+          <a
+            href="#apps"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] border border-border-default text-text-primary font-semibold whitespace-nowrap transition-colors hover:bg-white/5 no-underline"
+          >
+            Browse all {products.length}
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="products" class="py-(--spacing-section-sm) px-4 sm:px-6 lg:px-8">
+    <!-- Bento: flagship apps -->
+    <section class="px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <div class="mx-auto max-w-7xl">
-        <div class="text-center mb-12">
+        <div class="mb-10">
           <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight">
-            Every app.<br /><span class="text-gradient">Privacy built in.</span>
+            Start here
           </h2>
-          <p class="text-lg text-text-secondary max-w-2xl mx-auto mt-4">
-            From IPTV streaming to on-device AI — all free at the core, no accounts required.
-          </p>
+          <p class="text-text-secondary mt-2">Six apps people reach for first.</p>
         </div>
-        <ProductGrid client:load />
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(11rem,auto)] gap-4">
+          <!-- Featured flagship -->
+          <a
+            href={`/${hero.slug}/`}
+            class="tile flex-col col-span-2 lg:row-span-2 justify-between p-6 sm:p-8 no-underline text-inherit"
+          >
+            <div class="flex items-center gap-4">
+              <img src={hero.icon} alt="" width="64" height="64" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shrink-0" />
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-accent-violet">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>Flagship
+              </span>
+            </div>
+            <div class="mt-6">
+              <div class="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-display)]">{hero.name}</div>
+              <p class="text-text-secondary mt-2 max-w-md">{hero.tagline}</p>
+              <span class="inline-block mt-5 text-sm font-medium text-accent-violet">Open app →</span>
+            </div>
+          </a>
+
+          {rest.map((p) => (
+            <a href={`/${p.slug}/`} class="tile flex-col p-5 justify-between no-underline text-inherit">
+              <img src={p.icon} alt="" width="44" height="44" class="w-11 h-11 rounded-xl shrink-0" loading="lazy" />
+              <div class="mt-4">
+                <div class="font-semibold leading-snug">{p.name}</div>
+                <div class="text-sm text-text-secondary mt-1 line-clamp-2">{p.tagline}</div>
+              </div>
+            </a>
+          ))}
+
+          <!-- Privacy statement tile -->
+          <div class="tile flex-col col-span-2 p-6 sm:p-8 justify-center bg-[color:var(--color-background-red)]">
+            <p class="text-xl sm:text-2xl font-medium font-[family-name:var(--font-display)] leading-snug">
+              Everything runs <span class="text-gradient">on your device</span>. No sign-up, no cloud, no tracking.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="relative py-(--spacing-section-sm) overflow-hidden aurora-bg">
-      <div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight mb-6">
-          Pick your first app.<br /><span class="text-gradient">It's free.</span>
+    <!-- Browse all, by category -->
+    <section id="apps" class="px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28 scroll-mt-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-10">
+          <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight">
+            Every app
+          </h2>
+          <p class="text-text-secondary mt-2">All {products.length}, grouped by what they do.</p>
+        </div>
+
+        <div class="space-y-12">
+          {PRODUCT_CATEGORIES.map((category) => {
+            const items = productsByCategory(category);
+            if (items.length === 0) return null;
+            return (
+              <div>
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-4">
+                  {category} <span class="text-text-muted/60">· {items.length}</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {items.map((p) => (
+                    <a href={`/${p.slug}/`} class="tile flex-row items-center gap-4 p-4 no-underline text-inherit">
+                      <img src={p.icon} alt="" width="40" height="40" class="w-10 h-10 rounded-xl shrink-0" loading="lazy" />
+                      <span class="min-w-0">
+                        <span class="block font-semibold truncate">{p.name}</span>
+                        <span class="block text-sm text-text-secondary truncate">{p.tagline}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- Ft5-adjacent closing CTA -->
+    <section class="relative overflow-hidden bloom-bg">
+      <div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24 text-center">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-[family-name:var(--font-display)] tracking-tight leading-tight">
+          Pick your first app.<br /><span class="text-gradient">It’s free.</span>
         </h2>
-        <p class="text-lg text-text-secondary max-w-2xl mx-auto mb-10">
+        <p class="text-lg text-text-secondary max-w-2xl mx-auto mt-6 mb-10">
           Every core feature is free. No accounts, no trials, no strings attached.
         </p>
         <a
           href="/player/"
-          class="inline-flex items-center gap-2 px-8 py-4 rounded-[var(--radius-button)] bg-gradient-to-r from-accent-violet to-accent-cyan text-white font-semibold text-lg transition-all hover:scale-105 glow-accent no-underline"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[var(--radius-button)] bg-accent-violet text-white font-semibold text-lg whitespace-nowrap transition-transform hover:scale-[1.02] glow-accent no-underline"
         >
           Start with Tidox Player
         </a>

@@ -1,58 +1,36 @@
 ---
-import { products } from '../data/products';
-
-const footerLinks = [
+const links = [
   { href: '/about/', label: 'About' },
   { href: '/contact/', label: 'Contact' },
   { href: '/pricing/', label: 'Pricing' },
-  { href: '/privacy/', label: 'Privacy Policy' },
-  { href: '/terms/', label: 'Terms of Service' },
+  { href: '/privacy/', label: 'Privacy' },
+  { href: '/terms/', label: 'Terms' },
 ];
+const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-border-subtle bg-surface-raised/50">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-      <div>
-        <a href="/" class="flex items-center gap-2 no-underline">
-          <img src="/images/logo.svg" alt="Tidox" width="32" height="32" class="h-8 w-8" />
-          <span class="text-lg font-bold font-[family-name:var(--font-display)] text-gradient">Tidox</span>
-        </a>
-        <p class="text-sm text-text-secondary mt-4 leading-relaxed">
-          Privacy-first Android apps. No accounts, no tracking, no compromises.
-        </p>
-      </div>
+<!-- Ft5 · Statement (atmospheric default). Prev build: Ft3 index columns. -->
+<footer class="border-t border-border-subtle">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+    <p class="text-3xl sm:text-4xl md:text-5xl font-bold font-[family-name:var(--font-display)] tracking-tight leading-tight max-w-[20ch]">
+      Private apps, <span class="text-gradient">built to stay that way.</span>
+    </p>
 
-      <div>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-4">Company</h3>
-        <ul class="space-y-2.5">
-          {footerLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-text-secondary hover:text-text-primary transition-colors no-underline">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div class="mt-14 pt-8 border-t border-border-subtle flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <a href="/" class="flex items-center gap-2 no-underline shrink-0">
+        <img src="/images/logo.svg" alt="Tidox" width="28" height="28" class="h-7 w-7" />
+        <span class="text-base font-bold font-[family-name:var(--font-display)]">Tidox</span>
+      </a>
 
-      <div class="lg:col-span-2">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-4">Popular Apps</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
-          {products.slice(0, 9).map((product) => (
-            <a
-              href={`/${product.slug}/`}
-              class="text-sm text-text-secondary hover:text-text-primary transition-colors no-underline"
-            >
-              {product.name}
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2">
+        {links.map((link) => (
+          <a href={link.href} class="text-sm text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap no-underline">
+            {link.label}
+          </a>
+        ))}
+      </nav>
 
-    <div class="border-t border-border-subtle py-6 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-xs text-text-muted">© {new Date().getFullYear()} Tidox. All rights reserved.</p>
+      <p class="text-xs text-text-muted whitespace-nowrap">© {year} Tidox</p>
     </div>
   </div>
 </footer>
