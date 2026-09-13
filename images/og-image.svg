@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Tidox — privacy-first mobile apps">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#303030"/>
+      <stop offset="1" stop-color="#222222"/>
+    </linearGradient>
+    <clipPath id="tile">
+      <rect x="96" y="104" width="136" height="136" rx="26"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Tidox mark, from images/logo.svg scaled 512 -> 136 -->
+  <g clip-path="url(#tile)">
+    <g transform="translate(96 104) scale(0.265625)">
+      <rect width="512" height="512" fill="#3a3a3a"/>
+      <path fill="#F44336" d="M96 128h176v56H176v208h-80V184H96z"/>
+      <path fill="#111111" d="M272 128h144v56H352v72h64v56h-64v104h-80V128z"/>
+      <path fill="#FFFFFF" d="M232 216l96 56-96 56z"/>
+    </g>
+  </g>
+
+  <text x="96" y="368" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="112" letter-spacing="6" fill="#FFFFFF">TIDOX</text>
+  <text x="96" y="438" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="500" font-size="44" fill="#D6D6D6">Privacy-first mobile apps</text>
+
+  <rect x="96" y="486" width="184" height="6" rx="3" fill="#F44336"/>
+
+  <text x="96" y="556" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="500" font-size="30" letter-spacing="2" fill="#9A9A9A">tidox.online</text>
+</svg>
