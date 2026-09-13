@@ -9,7 +9,7 @@
 @import 'tailwindcss/utilities.css' layer(utilities);
 
 /*
- * Legacy site tokens (Tailwind v4 @theme) — mapped to Tidox IPTV palette
+ * Legacy site tokens (Tailwind v4 @theme) — mapped to the Tidox player palette
  * so existing utility classes keep working alongside Astryx.
  */
 @theme {

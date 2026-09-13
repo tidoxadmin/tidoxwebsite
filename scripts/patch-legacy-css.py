@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Patch legacy built CSS so pre-Astro product pages use IPTV player palette."""
+"""Patch legacy built CSS so pre-Astro product pages use the player palette."""
 from pathlib import Path
 
 CSS = Path(__file__).resolve().parents[1] / "_astro" / "app-locker.vlwaSPam.css"

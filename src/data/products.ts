@@ -27,7 +27,7 @@ export const products: Product[] = [
   {
     slug: 'player',
     name: 'Tidox Player',
-    tagline: 'Advanced IPTV & Media Player',
+    tagline: 'Advanced Media Player',
     category: 'Media & Entertainment',
     icon: '/images/products/player.png',
   },

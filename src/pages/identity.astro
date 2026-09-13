@@ -10,7 +10,7 @@ const PLAY_DEVELOPER = 'https://play.google.com/store/apps/developer?id=Tidox';
  * policy. Anything the apps actually send off the device is named here. */
 const onDevice = [
   'Files you open, record, scan or transcribe. Transcription runs on the device with a local Whisper model, so audio is not uploaded.',
-  'Your playlists, IPTV sources, notes, tasks, flashcards and clipboard history.',
+  'Your playlists, notes, tasks, flashcards and clipboard history.',
   'App lock PINs, patterns and fingerprint settings.',
   'Anything an app saves for later. There is no Tidox account and no cloud sync, so there is nowhere for it to go.',
 ];
@@ -25,21 +25,6 @@ const offDevice = [
     what: 'Crash reports',
     who: 'Firebase Crashlytics',
     why: 'A stack trace and device model when an app crashes, so the bug can be found.',
-  },
-  {
-    what: 'Usage analytics',
-    who: 'Firebase Analytics and PostHog',
-    why: 'Which screens and features get used, so development time goes to the parts people actually open.',
-  },
-  {
-    what: 'Session recordings',
-    who: 'PostHog',
-    why: 'Anonymised playback of how a screen was used, with text masked. It shows where people get stuck.',
-  },
-  {
-    what: 'Website visits',
-    who: 'Google Analytics',
-    why: 'Page views on tidox.online. This is the website, not the apps.',
   },
 ];
 
@@ -115,7 +100,7 @@ const commitments = [
             ))}
           </dl>
           <p class="mt-6 text-sm text-text-secondary leading-relaxed">
-            That list is the whole of it. Your files, recordings and notes are not on it.
+            Your files, recordings and notes are not on that list.
           </p>
         </aside>
       </div>
@@ -128,8 +113,8 @@ const commitments = [
           Where your data goes
         </h2>
         <p class="text-text-secondary mt-2 max-w-2xl">
-          Two lists, both complete. If something is missing from the second list, it is a
-          mistake worth telling us about.
+          The short version of what the apps do and do not send. The full detail is in
+          the privacy policy.
         </p>
 
         <div class="mt-10 grid gap-6 lg:grid-cols-2" data-reveal>
@@ -231,6 +216,12 @@ const commitments = [
             </li>
             <li>
               <a href="https://apps.tidox.online/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">All {products.length} apps</a>
+            </li>
+            <li>
+              <a href="https://learning.tidox.online/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">Tidox Learning Hub — a daily brief</a>
+            </li>
+            <li>
+              <a href="https://books.tidox.online/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">Tidox Books — an award-winner catalog</a>
             </li>
           </ul>
         </div>
