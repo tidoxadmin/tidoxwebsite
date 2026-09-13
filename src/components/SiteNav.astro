@@ -11,7 +11,7 @@ const navLinks = [
 
 <!-- N5 · Floating pill (atmospheric default). Prev build: N1b mega-menu. -->
 <header id="site-nav" class="fixed top-3 sm:top-4 inset-x-0 z-[var(--z-nav)] px-4">
-  <nav class="mx-auto max-w-4xl glass rounded-full shadow-2xl shadow-black/40">
+  <nav class="mx-auto max-w-4xl glass rounded-3xl md:rounded-full shadow-2xl shadow-black/40">
     <div class="flex h-14 items-center justify-between pl-4 pr-2 sm:pl-5 sm:pr-2.5">
       <a href="/" class="flex items-center gap-2 shrink-0 no-underline">
         <img src="/images/logo.svg" alt="Tidox" width="28" height="28" class="h-7 w-7" />
@@ -34,12 +34,92 @@ const navLinks = [
         ))}
       </div>
 
-      <a
-        href="/apps/"
-        class="ml-2 px-4 py-2 text-sm font-semibold rounded-full bg-accent-violet text-white whitespace-nowrap transition-transform hover:scale-[1.03] no-underline"
-      >
-        Get Apps
-      </a>
+      <div class="flex items-center gap-1.5">
+        <a
+          href="/apps/"
+          class="ml-2 px-4 py-2 text-sm font-semibold rounded-full bg-accent-violet text-white whitespace-nowrap transition-transform hover:scale-[1.03] no-underline"
+        >
+          Get Apps
+        </a>
+
+        <button
+          type="button"
+          class="md:hidden grid place-items-center h-9 w-9 rounded-full text-text-secondary transition-colors hover:text-text-primary hover:bg-white/5"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-nav-sheet"
+          aria-label="Open menu"
+        >
+          <svg class="h-5 w-5" data-nav-open-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+          <svg class="h-5 w-5" data-nav-close-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" hidden>
+            <line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="site-nav-sheet" class="md:hidden px-3 pb-3" data-nav-sheet hidden>
+      <div class="rounded-3xl border border-border-subtle bg-[#0e0e10]/95 backdrop-blur-xl p-2">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="flex items-center justify-between gap-2 px-4 py-3 text-base font-medium rounded-2xl transition-colors text-text-secondary hover:text-text-primary hover:bg-white/5 no-underline"
+          >
+            {link.label}
+            {link.external && (
+              <svg class="h-3.5 w-3.5 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 17 17 7M9 7h8v8" />
+              </svg>
+            )}
+          </a>
+        ))}
+      </div>
     </div>
   </nav>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const sheet = document.querySelector<HTMLElement>('[data-nav-sheet]');
+  const openIcon = document.querySelector<SVGElement>('[data-nav-open-icon]');
+  const closeIcon = document.querySelector<SVGElement>('[data-nav-close-icon]');
+
+  if (toggle && sheet && openIcon && closeIcon) {
+    const setOpen = (open: boolean) => {
+      sheet.hidden = !open;
+      openIcon.hidden = open;
+      closeIcon.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+
+    toggle.addEventListener('click', () => setOpen(sheet.hidden));
+
+    // Tapping a link navigates, but same-page anchors would otherwise leave the
+    // sheet covering what the reader just jumped to.
+    sheet.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !sheet.hidden) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target as Node;
+      if (sheet.hidden || sheet.contains(target) || toggle.contains(target)) return;
+      setOpen(false);
+    });
+
+    // Resizing past the breakpoint reveals the desktop links, so a sheet left
+    // open would sit there as a duplicate menu.
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+      if (event.matches) setOpen(false);
+    });
+  }
+</script>
