@@ -1,6 +1,8 @@
 ---
 const navLinks = [
   { href: '/#apps', label: 'Apps' },
+  { href: 'https://learning.tidox.online/', label: 'Learning', external: true },
+  { href: 'https://books.tidox.online/', label: 'Books', external: true },
   { href: '/pricing/', label: 'Pricing' },
   { href: '/about/', label: 'About' },
   { href: '/contact/', label: 'Contact' },
@@ -9,7 +11,7 @@ const navLinks = [
 
 <!-- N5 · Floating pill (atmospheric default). Prev build: N1b mega-menu. -->
 <header id="site-nav" class="fixed top-3 sm:top-4 inset-x-0 z-[var(--z-nav)] px-4">
-  <nav class="mx-auto max-w-3xl glass rounded-full shadow-2xl shadow-black/40">
+  <nav class="mx-auto max-w-4xl glass rounded-full shadow-2xl shadow-black/40">
     <div class="flex h-14 items-center justify-between pl-4 pr-2 sm:pl-5 sm:pr-2.5">
       <a href="/" class="flex items-center gap-2 shrink-0 no-underline">
         <img src="/images/logo.svg" alt="Tidox" width="28" height="28" class="h-7 w-7" />
@@ -20,9 +22,14 @@ const navLinks = [
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="px-3.5 py-2 text-sm font-medium rounded-full transition-colors text-text-secondary hover:text-text-primary hover:bg-white/5 no-underline"
+            class="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-full transition-colors text-text-secondary hover:text-text-primary hover:bg-white/5 no-underline"
           >
             {link.label}
+            {link.external && (
+              <svg class="h-3 w-3 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 17 17 7M9 7h8v8" />
+              </svg>
+            )}
           </a>
         ))}
       </div>
