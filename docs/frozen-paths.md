@@ -49,16 +49,23 @@ One page per app, all under the apex: `/about/`, `/alarm/`, `/app-locker/`,
 `/kora` (no trailing slash) is also burned into an app and currently answers
 `301` to `/kora/`. A same-host redirect is acceptable for Tier 3.
 
-## Known broken references
+## Tier 4 — restored aliases
 
-These URLs are burned into apps but already return `404`. They predate this
-document. Fix them during the migration rather than after it.
+These URLs are burned into older releases and returned `404` until 2026-09-13.
+They are now served and are pinned like every other frozen path.
+`scripts/sync-alias-pages.sh` regenerates the page copies from their source page
+and runs at the end of `scripts/publish.sh`.
 
-| Path | References | Suggested fix |
+| Path | References | Served as |
 | --- | --- | --- |
-| `/images/logo.png` | 14 | Serve the brand logo at this path. The references use `http://`, so the HTTPS redirect must stay. |
-| `/og-image.jpg` | 74 | Referenced by the homepage Open Graph tags, so social cards are blank today. |
-| `/support` | 1 | Alias to `/contact/`. |
-| `/privacy-policy` | 1 | Alias to `/privacy/`. |
-| `/privacy/app-locker` | 1 | Alias to `/app-locker/` or a per-app privacy page. |
-| `/echotype/privacy` | 1 | Alias to `/privacy/`. |
+| `/images/logo.png` | 14 | Generated from `images/logo.svg`. The references use `http://`, which the apex answers directly. |
+| `/og-image.jpg` | 74 | Generated from `images/og-image.svg`. Social cards were blank before this. |
+| `/support` | 1 | Copy of `/contact/`. |
+| `/privacy-policy` | 1 | Copy of `/privacy/`. |
+| `/privacy/app-locker` | 1 | Copy of `/privacy/`. |
+| `/echotype/privacy` | 1 | Copy of `/privacy/`. |
+
+Each page copy keeps its source page's canonical URL, so search engines still
+index one address per document. The copies exist instead of redirects because
+some Play and crawler checks fetch the URL without following a client-side
+redirect.

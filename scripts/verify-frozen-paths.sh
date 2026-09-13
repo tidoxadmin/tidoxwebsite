@@ -31,8 +31,9 @@ APPS=(
   task-manager transcript voice-memo vr-player
 )
 
-# Currently broken, tracked so the migration can close them out.
-KNOWN_BROKEN=(
+# Restored aliases for URLs burned into older releases. See
+# scripts/sync-alias-pages.sh. These are pinned like any other frozen path.
+RESTORED=(
   /images/logo.png
   /og-image.jpg
   /support
@@ -42,7 +43,6 @@ KNOWN_BROKEN=(
 )
 
 fail=0
-broken_now=0
 
 check() {
   local path="$1" label="$2"
@@ -77,9 +77,9 @@ done
 check /kora app || fail=$((fail + 1))
 
 echo
-echo "Known broken — not counted as failures yet:"
-for p in "${KNOWN_BROKEN[@]}"; do
-  check "$p" known || broken_now=$((broken_now + 1))
+echo "Restored aliases — pinned to this host:"
+for p in "${RESTORED[@]}"; do
+  check "$p" pinned || fail=$((fail + 1))
 done
 
 echo
@@ -87,4 +87,4 @@ if [ "$fail" -gt 0 ]; then
   echo "RESULT: $fail frozen path(s) broken on $HOST. Do not ship."
   exit 1
 fi
-echo "RESULT: all frozen paths healthy on $HOST. $broken_now known-broken path(s) still open."
+echo "RESULT: all frozen paths healthy on $HOST."
