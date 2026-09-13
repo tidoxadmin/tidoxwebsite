@@ -1,153 +1,308 @@
 ---
-/* Hallmark · genre: atmospheric · macrostructure: Bento Grid · theme: custom dark (brand-red locked)
- * F1 Bento knobs: tiles=8, spans=irregular, accent=corner-only · nav: N5 · footer: Ft5
- * tone: technical/confident · anchor hue: brand-red #F44336 · pre-emit critique: P5 H4 E5 S4 R5 V5 */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import {
-  PRODUCT_CATEGORIES,
-  products,
-  productsByCategory,
-} from '../data/products';
+import FluidField from '../components/FluidField.astro';
+import { products } from '../data/products';
 
-const bySlug = (slug: string) => products.find((p) => p.slug === slug)!;
-const featured = ['player', 'lucid', 'local', 'kora', 'remote-control', 'transcript'].map(bySlug);
-const [hero, ...rest] = featured;
+const SUPPORT_EMAIL = 'admin@tidox.online';
+const PLAY_DEVELOPER = 'https://play.google.com/store/apps/developer?id=Tidox';
+
+/* Every claim on this page has to survive a reader who then opens the privacy
+ * policy. Anything the apps actually send off the device is named here. */
+const onDevice = [
+  'Files you open, record, scan or transcribe. Transcription runs on the device with a local Whisper model, so audio is not uploaded.',
+  'Your playlists, notes, tasks, flashcards and clipboard history.',
+  'App lock PINs, patterns and fingerprint settings.',
+  'Anything an app saves for later. There is no Tidox account and no cloud sync, so there is nowhere for it to go.',
+];
+
+const offDevice = [
+  {
+    what: 'Ad requests',
+    who: 'Google AdMob',
+    why: 'Free versions show ads. The ad request carries the usual advertising identifiers, which you can reset or limit in Android settings.',
+  },
+  {
+    what: 'Crash reports',
+    who: 'Firebase Crashlytics',
+    why: 'A stack trace and device model when an app crashes, so the bug can be found.',
+  },
+];
+
+const commitments = [
+  {
+    title: 'Your content is not the product',
+    body: 'The files, recordings and notes you create in a Tidox app are never uploaded, sold or shared. What leaves the device is listed above, in full.',
+  },
+  {
+    title: 'No account, no sign-in',
+    body: 'No Tidox app asks you to register. There is no password to lose and no profile to delete, because none is created.',
+  },
+  {
+    title: 'Paying removes the ads',
+    body: 'Premium versions are a one-time purchase that switches the ads off. Nothing else changes, and the free version is not crippled to push the upgrade.',
+  },
+  {
+    title: 'Uninstalling ends it',
+    body: 'App data lives on the device. Removing the app removes it. Nothing is kept on a server waiting for you to come back.',
+  },
+];
 ---
 
 <BaseLayout
-  title="Tidox - Privacy-First Mobile Apps for Modern Life"
-  description="Discover Tidox's innovative Android apps: Media Player, Universal Remote, Guitar Tuner, AI Transcription, Screen Recorder, Scam Detector, Mesh Messaging, and more."
+  title="Tidox - Your files never leave your phone"
+  description="Tidox apps run on your device, not on our servers. Exactly what stays on your phone, what leaves it, how the apps are funded, and how to reach a person."
   canonical="https://tidox.online/"
 >
   <main class="pt-16">
     <!-- Hero -->
-    <section class="relative overflow-hidden bloom-bg">
-      <div class="relative z-10 mx-auto max-w-5xl w-full px-4 sm:px-6 lg:px-8 pt-24 pb-20 sm:pt-28 sm:pb-24 text-center rise">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold font-[family-name:var(--font-display)] tracking-tight leading-[0.95]">
-          Your phone.<br /><span class="text-gradient">Your rules.</span>
-        </h1>
-        <p class="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mt-6 leading-relaxed">
-          {products.length} privacy-first Android apps — streaming, on-device AI, tools. No accounts, no tracking, free at the core.
-        </p>
-        <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-          <a
-            href="/player/"
-            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] bg-accent-violet text-white font-semibold whitespace-nowrap transition-transform hover:scale-[1.02] glow-accent no-underline"
-          >
-            Start with Tidox Player
-          </a>
-          <a
-            href="#apps"
-            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] border border-border-default text-text-primary font-semibold whitespace-nowrap transition-colors hover:bg-white/5 no-underline"
-          >
-            Browse all {products.length}
-          </a>
+    <section class="relative isolate overflow-hidden min-h-[88svh] flex items-center">
+      <FluidField />
+
+      <div class="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-28 grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div data-reveal>
+          <p class="text-sm uppercase tracking-[0.2em] text-text-muted">Independent software studio</p>
+          <h1 class="mt-5 text-4xl sm:text-5xl md:text-6xl font-bold font-[family-name:var(--font-display)] tracking-tight leading-[1.05] max-w-[18ch]">
+            Your files never<br /><span class="text-gradient">leave your phone.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-text-secondary max-w-xl mt-6 leading-relaxed">
+            {products.length} Android apps that run entirely on the device — media players,
+            on-device AI tools, and utilities that each do one job — plus a daily
+            intelligence brief and a catalog of award-winning books on the web. No Tidox
+            server holds your data, because there is none. Here is exactly what that
+            means, and what still leaves the phone.
+          </p>
+          <div class="mt-10 flex flex-col sm:flex-row gap-3">
+            <a
+              href="/apps/"
+              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] bg-accent-violet text-white font-semibold whitespace-nowrap transition-transform hover:scale-[1.02] glow-accent no-underline"
+            >
+              Browse the apps
+            </a>
+            <a
+              href={`mailto:${SUPPORT_EMAIL}`}
+              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] border border-border-default text-text-primary font-semibold whitespace-nowrap transition-colors hover:bg-white/5 no-underline"
+            >
+              Email us
+            </a>
+          </div>
         </div>
+
+        <!-- The claim, stated as the data itself rather than as a slogan. -->
+        <aside class="glass-card p-6 sm:p-7" data-reveal data-reveal-delay="1">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-accent-violet"></span>
+            <span class="text-xs uppercase tracking-[0.18em] text-text-muted">Data leaving your phone</span>
+          </div>
+          <dl class="mt-6 space-y-4 font-[family-name:var(--font-mono),ui-monospace,monospace] text-sm">
+            {offDevice.map((row) => (
+              <div class="flex items-baseline justify-between gap-4 border-b border-border-subtle pb-3 last:border-b-0 last:pb-0">
+                <dt class="text-text-primary">{row.what}</dt>
+                <dd class="text-right text-text-muted">{row.who}</dd>
+              </div>
+            ))}
+          </dl>
+          <p class="mt-6 text-sm text-text-secondary leading-relaxed">
+            The files, recordings and notes you create stay on the phone. We never upload them.
+          </p>
+        </aside>
       </div>
     </section>
 
-    <!-- Bento: flagship apps -->
-    <section class="px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <!-- Data: what stays, what leaves -->
+    <section class="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 border-t border-border-subtle">
       <div class="mx-auto max-w-7xl">
-        <div class="mb-10">
-          <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight">
-            Start here
-          </h2>
-          <p class="text-text-secondary mt-2">Six apps people reach for first.</p>
-        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight">
+          Where your data goes
+        </h2>
+        <p class="text-text-secondary mt-2 max-w-2xl">
+          The short version of what the apps do and do not send. The full detail is in
+          the privacy policy.
+        </p>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(11rem,auto)] gap-4">
-          <!-- Featured flagship -->
-          <a
-            href={`/${hero.slug}/`}
-            class="tile flex-col col-span-2 lg:row-span-2 justify-between p-6 sm:p-8 no-underline text-inherit"
-          >
-            <div class="flex items-center gap-4">
-              <img src={hero.icon} alt="" width="64" height="64" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shrink-0" />
-              <span class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-accent-violet">
-                <span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>Flagship
-              </span>
-            </div>
-            <div class="mt-6">
-              <div class="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-display)]">{hero.name}</div>
-              <p class="text-text-secondary mt-2 max-w-md">{hero.tagline}</p>
-              <span class="inline-block mt-5 text-sm font-medium text-accent-violet">Open app →</span>
-            </div>
-          </a>
+        <div class="mt-10 grid gap-6 lg:grid-cols-2" data-reveal>
+          <!-- Stays -->
+          <div class="rounded-[var(--radius-card)] border border-border-default p-6 sm:p-8">
+            <h3 class="text-xl font-bold font-[family-name:var(--font-display)]">
+              Stays on your phone
+            </h3>
+            <ul class="mt-6 space-y-4">
+              {onDevice.map((item) => (
+                <li class="flex gap-3 text-text-secondary leading-relaxed">
+                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-violet"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {rest.map((p) => (
-            <a href={`/${p.slug}/`} class="tile flex-col p-5 justify-between no-underline text-inherit">
-              <img src={p.icon} alt="" width="44" height="44" class="w-11 h-11 rounded-xl shrink-0" loading="lazy" />
-              <div class="mt-4">
-                <div class="font-semibold leading-snug">{p.name}</div>
-                <div class="text-sm text-text-secondary mt-1 line-clamp-2">{p.tagline}</div>
-              </div>
-            </a>
-          ))}
-
-          <!-- Privacy statement tile -->
-          <div class="tile flex-col col-span-2 p-6 sm:p-8 justify-center bg-[color:var(--color-background-red)]">
-            <p class="text-xl sm:text-2xl font-medium font-[family-name:var(--font-display)] leading-snug">
-              Everything runs <span class="text-gradient">on your device</span>. No sign-up, no cloud, no tracking.
+          <!-- Leaves -->
+          <div class="rounded-[var(--radius-card)] border border-border-default p-6 sm:p-8">
+            <h3 class="text-xl font-bold font-[family-name:var(--font-display)]">
+              Leaves your phone
+            </h3>
+            <dl class="mt-6 space-y-5">
+              {offDevice.map((row) => (
+                <div class="border-t border-border-subtle pt-5 first:border-t-0 first:pt-0">
+                  <dt class="font-semibold">
+                    {row.what}
+                    <span class="ml-2 text-sm font-normal text-text-muted">{row.who}</span>
+                  </dt>
+                  <dd class="mt-1.5 text-text-secondary leading-relaxed">{row.why}</dd>
+                </div>
+              ))}
+            </dl>
+            <p class="mt-6 text-sm text-text-muted">
+              Full detail, including how to contact us about your data, is in the{' '}
+              <a href="/privacy/" class="text-accent-violet hover:underline">privacy policy</a>.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Browse all, by category -->
-    <section id="apps" class="px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28 scroll-mt-20">
+    <!-- Commitments -->
+    <section class="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 border-t border-border-subtle">
       <div class="mx-auto max-w-7xl">
-        <div class="mb-10">
-          <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight">
-            Every app
-          </h2>
-          <p class="text-text-secondary mt-2">All {products.length}, grouped by what they do.</p>
-        </div>
-
-        <div class="space-y-12">
-          {PRODUCT_CATEGORIES.map((category) => {
-            const items = productsByCategory(category);
-            if (items.length === 0) return null;
-            return (
-              <div>
-                <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-4">
-                  {category} <span class="text-text-muted/60">· {items.length}</span>
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {items.map((p) => (
-                    <a href={`/${p.slug}/`} class="tile flex-row items-center gap-4 p-4 no-underline text-inherit">
-                      <img src={p.icon} alt="" width="40" height="40" class="w-10 h-10 rounded-xl shrink-0" loading="lazy" />
-                      <span class="min-w-0">
-                        <span class="block font-semibold truncate">{p.name}</span>
-                        <span class="block text-sm text-text-secondary truncate">{p.tagline}</span>
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+        <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight">
+          What that means for you
+        </h2>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2" data-reveal>
+          {commitments.map((item) => (
+            <div class="rounded-[var(--radius-card)] border border-border-default p-6 sm:p-7">
+              <h3 class="text-lg font-bold font-[family-name:var(--font-display)]">{item.title}</h3>
+              <p class="mt-3 text-text-secondary leading-relaxed">{item.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- Ft5-adjacent closing CTA -->
-    <section class="relative overflow-hidden bloom-bg">
-      <div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-[family-name:var(--font-display)] tracking-tight leading-tight">
-          Pick your first app.<br /><span class="text-gradient">It’s free.</span>
-        </h2>
-        <p class="text-lg text-text-secondary max-w-2xl mx-auto mt-6 mb-10">
-          Every core feature is free. No accounts, no trials, no strings attached.
-        </p>
-        <a
-          href="/player/"
-          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[var(--radius-button)] bg-accent-violet text-white font-semibold text-lg whitespace-nowrap transition-transform hover:scale-[1.02] glow-accent no-underline"
-        >
-          Start with Tidox Player
-        </a>
+    <!-- Support -->
+    <section class="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 border-t border-border-subtle">
+      <div class="mx-auto max-w-7xl grid gap-10 lg:grid-cols-[1.2fr_1fr]" data-reveal>
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-display)] tracking-tight">
+            When something breaks
+          </h2>
+          <p class="text-text-secondary mt-4 leading-relaxed max-w-2xl">
+            Every app has Help &amp; Support in its menu, which sends the report with the
+            app version and device model already filled in. That is the fastest route,
+            because it saves the back and forth about which build you are running.
+          </p>
+          <p class="text-text-secondary mt-4 leading-relaxed max-w-2xl">
+            Email works too. A person reads every message and answers it, usually within
+            a couple of days.
+          </p>
+          <a
+            href={`mailto:${SUPPORT_EMAIL}`}
+            class="mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] bg-accent-violet text-white font-semibold transition-transform hover:scale-[1.02] glow-accent no-underline"
+          >
+            {SUPPORT_EMAIL}
+          </a>
+        </div>
+
+        <div class="rounded-[var(--radius-card)] border border-border-default p-6 sm:p-8">
+          <h3 class="text-lg font-bold font-[family-name:var(--font-display)]">On the record</h3>
+          <ul class="mt-5 space-y-3">
+            <li>
+              <a href="/privacy/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">Privacy policy</a>
+            </li>
+            <li>
+              <a href="/terms/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">Terms of use</a>
+            </li>
+            <li>
+              <a href="/pricing/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">What the premium versions cost</a>
+            </li>
+            <li>
+              <a href={PLAY_DEVELOPER} rel="noopener" class="text-text-secondary hover:text-text-primary transition-colors no-underline">Tidox on Google Play</a>
+            </li>
+            <li>
+              <a href="/apps/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">All {products.length} apps</a>
+            </li>
+            <li>
+              <a href="https://learning.tidox.online/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">Tidox Learning Hub — a daily brief</a>
+            </li>
+            <li>
+              <a href="https://books.tidox.online/" class="text-text-secondary hover:text-text-primary transition-colors no-underline">Tidox Books — an award-winner catalog</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  /* Frosted panel over the shader. The blur is what sells the depth, so it
+     falls back to a solid tint where backdrop-filter is unsupported. */
+  .glass-card {
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(18, 18, 20, 0.72);
+    box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.9);
+  }
+
+  @supports (backdrop-filter: blur(16px)) {
+    .glass-card {
+      background: rgba(18, 18, 20, 0.52);
+      backdrop-filter: blur(16px) saturate(130%);
+      -webkit-backdrop-filter: blur(16px) saturate(130%);
+    }
+  }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-reveal][data-reveal-delay='1'] {
+    transition-delay: 0.12s;
+  }
+
+  [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* No JavaScript means no observer, so the content must not stay invisible. */
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<noscript>
+  <style>
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</noscript>
+
+<script>
+  const targets = document.querySelectorAll<HTMLElement>('[data-reveal]');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('is-in'));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add('is-in');
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '0px 0px -12% 0px' }
+    );
+    targets.forEach((el) => observer.observe(el));
+  }
+</script>

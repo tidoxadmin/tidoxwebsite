@@ -4,5 +4,18 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "trailingSlash": true,
-  "cleanUrls": false
+  "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "apps.tidox.online"
+        }
+      ],
+      "destination": "/apps/",
+      "permanent": false
+    }
+  ]
 }

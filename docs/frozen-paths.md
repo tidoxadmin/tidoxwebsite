@@ -16,6 +16,8 @@ Run `scripts/verify-frozen-paths.sh` before and after any DNS or hosting change.
 | `/app-ads.txt` | AdMob crawler | Must stay at the apex root. The publisher line is `google.com, pub-8027163152836505, DIRECT, f08c47fec0942fa0`. Play Console lists `tidox.online` as the developer website, which is where the crawler looks. |
 | `/robots.txt` | Google, Bing | Points at `/sitemap-index.xml`. |
 | `/sitemap-index.xml` | Google Search Console | Child sitemap `/sitemap-0.xml`. |
+| `/googlec75af7e410066abe.html` | Google Search Console | The site verification file. Removing it can unverify the property. |
+| `/apps/` | Play listings, site navigation | The app catalog. It was the homepage until 2026-09-14, when the identity page took the root. |
 
 Search Console verification is the DNS TXT record
 `google-site-verification=Lkbvnfw-USMbXfdLtDA2T1f1MLCrX4OnGzQKvMTpnrM` on the

@@ -21,21 +21,34 @@ ALIASES=(
   "privacy/app-locker:privacy"
   "echotype/privacy:privacy"
   "support:contact"
+  "identity:."
+  "privacy_policy.html:privacy"
 )
 
 for entry in "${ALIASES[@]}"; do
   alias_path="${entry%%:*}"
   source_page="${entry##*:}"
-  source_file="$source_page/index.html"
+  if [[ "$source_page" == "." ]]; then
+    source_file="index.html"
+  else
+    source_file="$source_page/index.html"
+  fi
 
   if [[ ! -f "$source_file" ]]; then
     echo "FAIL: source page missing: $source_file"
     exit 1
   fi
 
-  mkdir -p "$alias_path"
-  cp "$source_file" "$alias_path/index.html"
-  echo "  /$alias_path/ <- /$source_page/"
+  if [[ "$alias_path" == *.html ]]; then
+    # A file alias, not a directory: /privacy_policy.html is linked from inside
+    # shipped APKs and has to answer with the policy itself, not a redirect.
+    cp "$source_file" "$alias_path"
+    echo "  /$alias_path <- /$source_page/"
+  else
+    mkdir -p "$alias_path"
+    cp "$source_file" "$alias_path/index.html"
+    echo "  /$alias_path/ <- /$source_page/"
+  fi
 done
 
 echo "Alias pages synced."

@@ -14,6 +14,8 @@ PINNED=(
   /sitemap-index.xml
   /sitemap-0.xml
   /privacy_policy.html
+  /googlec75af7e410066abe.html
+  /apps/
   /privacy
   /privacy/
   /terms
