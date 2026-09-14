@@ -28,5 +28,6 @@ fi
 python3 scripts/patch-legacy-css.py
 bash scripts/verify-brand-assets.sh
 bash scripts/sync-alias-pages.sh
+bash scripts/verify-assets.sh
 
 echo "Published homepage + assets. Product pages still use patched legacy CSS."
