@@ -20,6 +20,8 @@ const offDevice = [
     what: 'Ad requests',
     who: 'Google AdMob',
     why: 'Free versions show ads. The ad request carries the usual advertising identifiers, which you can reset or limit in Android settings.',
+    // Kept out of the hero summary card; the full "Leaves your phone" section below still lists it.
+    inSummary: false,
   },
   {
     what: 'Crash reports',
@@ -117,7 +119,7 @@ const commitments = [
             <span class="text-xs uppercase tracking-[0.18em] text-text-muted">Data leaving your phone</span>
           </div>
           <dl class="mt-6 space-y-4 font-[family-name:var(--font-mono),ui-monospace,monospace] text-sm">
-            {offDevice.map((row) => (
+            {offDevice.filter((row) => row.inSummary !== false).map((row) => (
               <div class="flex items-baseline justify-between gap-4 border-b border-border-subtle pb-3 last:border-b-0 last:pb-0">
                 <dt class="text-text-primary">{row.what}</dt>
                 <dd class="text-right text-text-muted">{row.who}</dd>
@@ -250,7 +252,7 @@ const commitments = [
             href={`mailto:${SUPPORT_EMAIL}`}
             class="mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] bg-accent-violet text-white font-semibold transition-transform hover:scale-[1.02] glow-accent no-underline"
           >
-            {SUPPORT_EMAIL}
+            Email us
           </a>
         </div>
 
