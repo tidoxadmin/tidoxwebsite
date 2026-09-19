@@ -21,9 +21,12 @@ for dir in dist/*/; do
   cp "$dir/index.html" "$name/index.html"
 done
 
-if [[ -f dist/sitemap-index.xml ]]; then
-  cp dist/sitemap-index.xml sitemap-index.xml
-fi
+# Copy the whole sitemap set. Copying only sitemap-index.xml left the
+# sitemap-0.xml it points at stale, so a rebuilt sitemap never reached the root.
+for f in dist/sitemap-*.xml; do
+  [[ -f "$f" ]] || continue
+  cp "$f" "$(basename "$f")"
+done
 
 python3 scripts/patch-legacy-css.py
 bash scripts/verify-brand-assets.sh
