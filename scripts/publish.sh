@@ -29,6 +29,7 @@ for f in dist/sitemap-*.xml; do
 done
 
 python3 scripts/patch-legacy-css.py
+python3 scripts/defer-chat-widget.py
 bash scripts/verify-brand-assets.sh
 bash scripts/sync-alias-pages.sh
 bash scripts/verify-assets.sh

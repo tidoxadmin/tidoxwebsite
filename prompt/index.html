@@ -115,9 +115,13 @@ Company
 Privacy
 </a> <span class="text-border-subtle">·</span> <a href="/terms/" class="text-xs text-text-muted hover:text-text-secondary transition-colors">
 Terms
-</a> </div> </div> </div> </footer> <!-- Lenis Smooth Scroll + Hero Entrance + Parallax --> <script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.Jro0MrvZ.js"></script> <!-- Chaport Live Chat --> <script>
+</a> </div> </div> </div> </footer> <!-- Lenis Smooth Scroll + Hero Entrance + Parallax --> <script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.Jro0MrvZ.js"></script> <!-- Chaport Live Chat --> <script data-chaport-deferred>
     (function(w,d,v2){
       w.chaport = { app_id : '5b107c04a0b66d7b8919d97c' };
-      v2=w.chaport;v2._q=[];v2._l={};v2.q=function(){v2._q.push(arguments)};v2.on=function(e,fn){if(!v2._l[e])v2._l[e]=[];v2._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)
+      v2=w.chaport;v2._q=[];v2._l={};v2.q=function(){v2._q.push(arguments)};v2.on=function(e,fn){if(!v2._l[e])v2._l[e]=[];v2._l[e].push(fn)};
+      var loaded=false,events=['scroll','pointerdown','touchstart','keydown'];
+      function load(){if(loaded)return;loaded=true;events.forEach(function(e){w.removeEventListener(e,load)});var s=d.createElement('script');s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';d.body.appendChild(s)}
+      events.forEach(function(e){w.addEventListener(e,load,{once:true,passive:true})});
+      setTimeout(load,15000);
     })(window, document);
   </script> </body> </html>

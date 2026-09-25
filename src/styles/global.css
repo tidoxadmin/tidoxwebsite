@@ -55,6 +55,19 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* The Astryx neutral theme also defines --color-text-primary, --color-text-secondary,
+   --color-success and --color-error, as light-dark() pairs, and its rules beat the
+   @theme layer. With the page in `color-scheme: light dark`, a visitor in light mode
+   (and Googlebot) got #0a1317 headings on the dark hero: invisible text. The site is
+   dark only, so pin the scheme and restate the four brand values unlayered. */
+:root {
+  color-scheme: dark;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #cccccc;
+  --color-success: #32cd32;
+  --color-error: #ff5252;
+}
+
 @font-face {
   font-family: Inter;
   font-style: normal;

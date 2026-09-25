@@ -9,6 +9,12 @@
  * Degrades in three steps: no WebGL leaves the CSS gradient visible, reduced
  * motion paints one static frame, and an off-screen or hidden canvas stops the
  * loop entirely.
+ *
+ * Cost control: the loop starts only after the page has loaded and gone idle,
+ * so it never competes with first paint. It then samples its own frame rate;
+ * a device that cannot hold ~25 fps drops to half resolution at 30 fps, and one
+ * that still cannot keeps a single static frame. On a GPU-less renderer (the
+ * Lighthouse mobile run) the uncapped loop blocked the main thread for 4.2 s.
  */
 export interface Props {
   class?: string;
@@ -176,7 +182,14 @@ const { class: className = '' } = Astro.props;
   type FieldState = {
     raf: number;
     visible: boolean;
+    frozen: boolean;
   };
+
+  const SAMPLE_FRAMES = 30;
+  const SLOW_FRAME_MS = 40;
+  const LOW_DPR = 0.5;
+  const LOW_FRAME_MS = 1000 / 30;
+  const START_TIMEOUT_MS = 3000;
 
   function compile(gl: WebGLRenderingContext, type: number, source: string) {
     const shader = gl.createShader(type);
@@ -228,13 +241,14 @@ const { class: className = '' } = Astro.props;
     const uTime = gl.getUniformLocation(program, 'u_time');
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const state: FieldState = { raf: 0, visible: true };
+    const state: FieldState = { raf: 0, visible: true, frozen: false };
+    const quality = { level: 0, samples: 0, sampleStart: 0, lastDraw: 0 };
     const pointer = { x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 };
 
     function resize() {
       // Capped device pixel ratio: the shader is fill-rate bound, and a phone
       // at DPR 3 renders nine times the pixels for no visible gain.
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+      const dpr = quality.level > 0 ? LOW_DPR : Math.min(window.devicePixelRatio || 1, 1.6);
       const width = Math.floor(root.clientWidth * dpr);
       const height = Math.floor(root.clientHeight * dpr);
       if (canvas.width === width && canvas.height === height) return;
@@ -259,10 +273,35 @@ const { class: className = '' } = Astro.props;
       }
     }
 
+    /** Step quality down once per sample window when frames run slow. */
+    function measure(now: number) {
+      if (quality.samples === 0) quality.sampleStart = now;
+      quality.samples += 1;
+      if (quality.samples < SAMPLE_FRAMES) return;
+      const average = (now - quality.sampleStart) / (SAMPLE_FRAMES - 1);
+      quality.samples = 0;
+      if (average <= SLOW_FRAME_MS) return;
+      if (quality.level === 0) {
+        quality.level = 1;
+        resize();
+      } else {
+        state.frozen = true;
+      }
+    }
+
     function loop(now: number) {
-      if (!state.visible) return;
+      if (!state.visible || state.frozen) {
+        state.raf = 0;
+        return;
+      }
+      if (quality.level > 0 && now - quality.lastDraw < LOW_FRAME_MS) {
+        state.raf = requestAnimationFrame(loop);
+        return;
+      }
+      quality.lastDraw = now;
       resize();
       draw(now / 1000);
+      measure(now);
       state.raf = requestAnimationFrame(loop);
     }
 
@@ -291,7 +330,7 @@ const { class: className = '' } = Astro.props;
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         state.visible = entry.isIntersecting && !document.hidden;
-        if (state.visible && !state.raf) state.raf = requestAnimationFrame(loop);
+        if (state.visible && !state.raf && !state.frozen) state.raf = requestAnimationFrame(loop);
         if (!state.visible) stop();
       }
     });
@@ -299,12 +338,23 @@ const { class: className = '' } = Astro.props;
 
     document.addEventListener('visibilitychange', () => {
       state.visible = !document.hidden;
-      if (state.visible && !state.raf) state.raf = requestAnimationFrame(loop);
+      if (state.visible && !state.raf && !state.frozen) state.raf = requestAnimationFrame(loop);
       if (!state.visible) stop();
     });
 
     state.raf = requestAnimationFrame(loop);
   }
 
-  document.querySelectorAll<HTMLElement>('[data-fluid-field]').forEach(startField);
+  function startAll() {
+    document.querySelectorAll<HTMLElement>('[data-fluid-field]').forEach(startField);
+  }
+
+  // Wait for load, then idle: the CSS gradient carries first paint.
+  function whenIdle() {
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number };
+    if (w.requestIdleCallback) w.requestIdleCallback(startAll, { timeout: START_TIMEOUT_MS });
+    else setTimeout(startAll, 200);
+  }
+  if (document.readyState === 'complete') whenIdle();
+  else window.addEventListener('load', whenIdle, { once: true });
 </script>
