@@ -30,6 +30,7 @@ done
 
 python3 scripts/patch-legacy-css.py
 python3 scripts/defer-chat-widget.py
+python3 scripts/youtube-facade.py
 bash scripts/verify-brand-assets.sh
 bash scripts/sync-alias-pages.sh
 bash scripts/verify-assets.sh

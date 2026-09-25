@@ -68,6 +68,23 @@
   --color-error: #ff5252;
 }
 
+/* Brand red #f44336 as small text on #303030 is 3.58:1, under WCAG AA 4.5:1.
+   Text uses a lighter red (4.87:1); fills and borders keep #f44336. */
+.text-accent-violet {
+  color: #ff7063;
+}
+
+/* White text on #f44336 is 3.68:1. Fills use #d32f2f (4.98:1 with white). */
+.bg-accent-violet {
+  background-color: #d32f2f;
+}
+
+/* Inline links in running text must not rely on colour alone (WCAG 1.4.1). */
+p a.text-accent-violet {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @font-face {
   font-family: Inter;
   font-style: normal;
@@ -150,6 +167,11 @@ body {
 /* Brand emphasis — solid ink. Gradient-clipped headline is a top AI tell. */
 .text-gradient {
   color: var(--color-accent-violet);
+}
+
+/* Headline size passes 3:1 in brand red; body-size text needs 4.5:1. */
+p .text-gradient {
+  color: #ff7063;
 }
 
 .glow-accent {

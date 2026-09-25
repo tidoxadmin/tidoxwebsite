@@ -33,7 +33,15 @@ REPLACEMENTS = [
     ("background:#060709d9", "background:rgb(48 48 48 / 0.85)"),
     ("border:1px solid oklch(25% .01 260/.4)", "border:1px solid rgb(255 255 255 / 0.08)"),
     ("border-bottom:1px solid oklch(25% .01 260/.3)", "border-bottom:1px solid rgb(255 255 255 / 0.08)"),
+    # Brand red #f44336 as small text on #303030 is 3.58:1, under WCAG AA 4.5:1.
+    # Text uses a lighter red (4.87:1); fills and borders keep #f44336.
+    (".text-accent-violet{color:var(--color-accent-violet)}", ".text-accent-violet{color:#ff7063}"),
+    # White text on #f44336 is 3.68:1. Fills use #d32f2f (4.98:1 with white).
+    (".bg-accent-violet{background-color:var(--color-accent-violet)}", ".bg-accent-violet{background-color:#d32f2f}"),
 ]
+
+# Inline links in running text must not rely on colour alone (WCAG 1.4.1).
+APPEND = "p a.text-accent-violet{text-decoration:underline;text-underline-offset:2px}"
 
 def main() -> None:
     if not CSS.exists():
@@ -43,6 +51,8 @@ def main() -> None:
     original = text
     for old, new in REPLACEMENTS:
         text = text.replace(old, new)
+    if APPEND not in text:
+        text = text.rstrip("\n") + "\n" + APPEND + "\n"
     if text != original:
         CSS.write_text(text)
         print(f"patched {CSS}")
